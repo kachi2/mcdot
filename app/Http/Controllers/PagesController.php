@@ -16,7 +16,7 @@ use App\Models\Industry;
 
 class PagesController extends Controller
 {
-    public function Pages($id){
+    public function Pages($id = null){
         $id = decrypt($id);
         $menuId = Menu::where('id', $id)->first();
         //dd( $menuId);
@@ -75,7 +75,7 @@ class PagesController extends Controller
     }
 
 
-    public function Subpages($id){
+    public function Subpages($id = null){
         $id = decrypt($id);
         $id = SubMenu::where('id', $id)->first();
         $pages = Page::where('sub_menu_id', $id->id)->first();
@@ -88,7 +88,7 @@ class PagesController extends Controller
         return view('frontend.subpages', $pages);
     } 
 
-    public function BlogDetails($id){
+    public function BlogDetails($id = null){
         $id = decrypt($id);
         $menuId = Menu::where('id', $id)->first();
         $page['pages'] = 'Blog';
@@ -100,7 +100,7 @@ class PagesController extends Controller
         ]);
     }
 
-    public function JobCategory($id){
+    public function JobCategory($id = null){
         $id = explode('-', $id);
         return view('frontend.jobs', [
             'jobs' => ClientJob::where('industries_id', $id)->get(),

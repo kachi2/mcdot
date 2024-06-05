@@ -19,7 +19,7 @@ class DashboardController extends Controller
             'blogs' => Blog::where('status', 1)->latest()->get(),
             'services' => SubMenu::where('menu_id', 2)->get(),
             'testimonials' => Testimonial::latest()->get(),
-            'logos' => ClientLogo::latest()->get(),
+          
         ]);
     }
 }

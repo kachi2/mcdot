@@ -1,86 +1,109 @@
-<header class="header-area">
-    <!-- Start Pre Header Area -->
-    <div class="prehedaer-area-wrapper">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 col-xl-6 offset-xl-2 d-none d-sm-block">
-                    <div class="pre-header-left d-sm-flex justify-content-center justify-content-lg-start">
-                        <div class="pre-header-item">
-                            <a href="tel:1-775-97-377"><i class="fa fa-phone"></i> {{$settings->site_phone}}</a>
-                        </div>
+<div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader"></div>
 
-                        <div class="pre-header-item">
-                            <span><i class="fa fa-clock-o"></i>{{$settings->opening_hours}}</span>
-                        </div>
-
-                        <div class="pre-header-item">
-                            <a href="mailto:your@example.com"><i class="fa fa-envelope-o"></i> {{$settings->site_email}}</a>
-                        </div>
-                    </div>
+    <header class="main-header">
+        <!--Header Top-->
+        <div class="header-top">
+            <div class="auto-container clearfix">
+                <div class="top-left clearfix">
+                    <div class="text"><span class="icon flaticon-phone-receiver"></span> Need help? Call Us Now : <a href="tel:1800-456-7890" class="number">1800 456 7890</a></div>
+					
                 </div>
-
-                <div class="col-lg-4 d-none d-lg-block">
-                    <div class="pre-header-right text-center text-md-end">
-                        <div class="social-icons">
-                            <a href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
-                            <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
-                            {{-- <a href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a> --}}
-                            <a href="{{$settings->instagram}}"><i class="fa fa-instagram"></i></a>
-                            {{-- <a href="{{$settings->pinterest}}"><i class="fa fa-pinterest"></i></a> --}}
-                        </div>
-                    </div>
+                <div class="top-right clearfix">
+                    <!-- Info List -->
+					<ul class="info-list">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="blog.html">News & Articles</a></li>
+						<li><a href="contact.html">Franchies Opportunity</a></li>
+                    </ul>
+					<!--Language-->
+					<div class="language dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"> EN &nbsp;<span class="fa fa-caret-down"></span></a>
+						<ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu1">
+							<li><a href="#">English</a></li>
+							<li><a href="#">German</a></li>
+							<li><a href="#">Arabic</a></li>
+							<li><a href="#">Hindi</a></li>
+						</ul>
+					</div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Pre Header Area -->
+        <!-- End Header Top -->
 
-    <!-- Start Header Bottom Area  -->
-    <div class="header-bottom header-shape sticky-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-5 col-lg-2">
-                    <!-- Start Logo Area -->
-                    <div class="logo-area">
-                        <a href="{{route('index')}}"><img src="{{asset('/assets/logo.png')}}"  alt="Logo"/></a>
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="inner-container">
+                <div class="auto-container clearfix">
+                    <!--Info-->
+                    <div class="logo-outer">
+                        <div class="logo"><a href="{{route('index')}}"><img src="{{$settings->logo}}" alt="" title="" width="250px"></a></div>
                     </div>
-                    <!-- End Logo Area -->
-                </div>
 
-                <div class="col-lg-8 d-none d-lg-block">
-                    <!-- Start Navigation Area -->
-                    <nav class="navigation-area">
-                        <ul class="main-menu nav">
-                            @foreach ($menus as $menu )
-                            <li class="@if($menu->has_child) dropdown-navbar @else @endif ">@if($menu->name == 'Home') <a href="{{route('index')}}">{{$menu->name}}</a> @else <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
-                                @if(count($menu->subMenu) > 0)
-                                <ul class="dropdown-nav">
-                                    @forelse ($menu->subMenu as $sub ) 
-                                    <li><a href="{{route('subpages', encrypt($sub->id))}}">{{$sub->name}}</a></li>   
-                                    @empty
-                                    @endforelse
+                    <!--Nav Box-->
+                    <div class="nav-outer clearfix">
+                        <!--Mobile Navigation Toggler For Mobile--><div class="mobile-nav-toggler"><span class="icon flaticon-menu-button"></span></div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="navbar-header">
+                                <!-- Togg le Button -->      
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="icon flaticon-menu"></span>
+                                </button>
+                            </div>
+                            
+                            <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    @foreach ($menus as $menu )
+                                 @if($menu->has_child)
+                                        <li class="dropdown">
+                                            <a href="{{route($menu->slug)}}">{{$menu->name}} 
+                                             </a> 
+                                         @if(count($menu->subMenu) > 0)
+                                        <ul>
+                                            @forelse ($menu->subMenu as $sub ) 
+                                            <li >
+                                                <a  href="{{route($sub->slug)}}">{{$sub->name}}</a> 
+                                            </li>
+                                            @empty
+                                            @endforelse
+                                        </ul>
+                                        @endif
+                                     </li>
+                                    @else
+                                    <li>
+                                   <a class="nav-link" href="{{route($menu->slug)}}">{{$menu->name}}</a> 
+                                    </li>
+                                    @endif
+                                    @endforeach
                                 </ul>
-                            </li>
-                            @endif
-                            @endforeach
-                        </ul>
-                    </nav>
-                    <!-- End Navigation Area -->
-                </div>
+                            </div>
+                        </nav>
+                        <!-- Main Menu End-->
 
-                <div class="col-6 col-lg-2">
-                    <!-- Start Header Action Area -->
-                    <div class="header-action-area">
-                        <ul class="action-buttons nav justify-content-end">
-                            <li class="d-lg-none">
-                                <button class="btn-canvas-open"><i class="pe-7s-menu"></i></button>
-                            </li>
-                        </ul>
+                        <!-- Main Menu End-->
+                        <div class="outer-box clearfix">
+                            <!-- Button Box -->
+                            <div class="btn-box">
+                                <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Ask a Question</span></a>
+                            </div>
+                        </div>
                     </div>
-                    <!-- End Header Action Area -->
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Header Bottom Area  -->
-</header>
+        <!--End Header Upper-->
+
+    	<!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>
+            
+            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            <nav class="menu-box">
+            	<div class="nav-logo"><a href="index.html"><img src="images/nav-logo.png" alt="" title=""></a></div>
+                
+                <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+            </nav>
+        </div><!-- End Mobile Menu -->
+
+    </header>

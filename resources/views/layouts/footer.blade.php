@@ -1,134 +1,100 @@
-<footer class="footer-area-wrapper">
-    <!-- Start Footer Widget Area -->
-    <div class="footer-widget-area">
-        <div class="container">
-            <div class="row mtm-30">
-                <div class="col-lg-4">
-                    <!-- Start Single Footer Widget-item -->
-                    <div class="widget-item">
-                        <div class="widget-body">
-                            <img class="mb-24" src="{{asset('assets/'.$settings->logo)}}" alt="Logo"/>
-                            <p style="color:#211d1d">{{$settings->about}}.</p>
-                            <div class="social-icons social-icons--two mt-22">
-                                <a href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
-                            <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
-                            {{-- <a href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a> --}}
-                            <a href="{{$settings->instagram}}"><i class="fa fa-instagram"></i></a>
-                            {{-- <a href="{{$settings->pinterest}}"><i class="fa fa-pinterest"></i></a> --}}
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Footer Widget-item -->
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <!-- Start Single Footer Widget-item -->
-                    <div class="widget-item">
-                        <div class="widget-body">
-                            <div class="widget-title">
-                                <h3 style="color:#211d1d">Help Links</h3>
-                            </div>
-
-                            <div class="widget-body">
-                                <ul class="list list-6">
-                                    @foreach ($menus as $menu )
-                                    <li > 
-                                    @if($menu->name == 'Home') <a style="color:#211d1d"  href="{{route('index')}}">{{$menu->name}}</a> @else <a style="color:#211d1d" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
-                                   </li>
-                                    @endforeach
-                               
+<footer class="main-footer">
+    <div class="auto-container">
+        <!--Widgets Section-->
+        <div class="widgets-section">
+            <div class="row clearfix">
+                
+                <!--big column-->
+                <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="row clearfix">
+                    
+                        <!--Footer Column-->
+                        <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                            <div class="footer-widget logo-widget">
+                                <div class="logo">
+                                    <a href="index.html"><img src="images/footer-logo.png" alt="" /></a>
+                                </div>
+                                <div class="text">CareGiver is a WordPress theme to build Elderly People Care. It has good features and you will love.</div>
+                                <ul class="social-icons">
+                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fab fa-google-plus-g"></span></a></li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Single Footer Widget-item -->
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <!-- Start Single Footer Widget-item -->
-                    <div class="widget-item">
-                        <div class="widget-body">
-                            <div class="widget-title">
-                                <h3 style="color:#211d1d">Our Office</h3>
-                            </div>
-
-                            <div class="widget-body">
-                                <div class="office-info">
-                                    <p style="color:#211d1d"><i class="fa fa-map-marker"></i> {{$settings->address}}.</p>
-                                    <p style="color:#211d1d"><i class="fa fa-phone"></i>  {{$settings->site_phone}}</p>
-                                    <p style="color:#211d1d"><i class="fa fa-envelope-o"></i>  {{$settings->site_email}}</p>
-                                    <p style="color:#211d1d"><i class="fa fa-clock-o"></i>  {{$settings->opening_hours}}</p>
+                        
+                        <!--Footer Column-->
+                        <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                            <div class="footer-widget links-widget">
+                                <h2>Quick links</h2>
+                                <div class="widget-content">
+                                    <ul class="list">
+                                        <li><a href="#">About Hotel</a></li>
+                                        <li><a href="#">Types of Care</a></li>
+                                        <li><a href="#">Testimonials</a></li>
+                                        <li><a href="#">News & Articles</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Single Footer Widget-item -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Footer Widget Area -->
-
-    <!-- Start Footer Bottom Area -->
-    <div class="footer-bottom-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="copyright-text">
-                        <p> &copy; Copyrights
-                             <script>
-                               // document.write(new Date().getFullYear())
-                            </script>
-                           {{$settings->site_copyright}}
-                        </p>
+                    
                     </div>
                 </div>
+                
+                <!--big column-->
+                <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="row clearfix">
+                    
+                        <!--Footer Column-->
+                        <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                            <div class="footer-widget contact-widget">
+                                <h2>Contact Info</h2>
+                                <div class="widget-content">
+                                    <a href="tel:1800-574-9687" class="contact-number">(1800) 574 9687</a>
+                                    <ul>
+                                        <li>256, Victory Street, New York <br> City, AZ 550067</li>
+                                        <li>Email :<a href="mailto:info@caregiver.com"> info@caregiver.com</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--Footer Column-->
+                        <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                            <div class="footer-widget newsletter-widget">
+                                <h2>Newsletter</h2>
+                                <div class="text">Get Special offers & Discounts</div>
+                                <!-- Newsletter Form -->
+                                <div class="newsletter-form">
+                                    <form method="post" action="http://t.commonsupport.com/care-giver/contact.html">
+                                        <div class="form-group">
+                                            <input type="email" name="email" value="" placeholder="Enter your email address" required>
+                                            <button type="submit" class="theme-btn btn-style-one"><span class="txt">Subscribe</span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+                
             </div>
         </div>
+        
+        <!--Footer Bottom-->
+        <div class="footer-bottom clearfix">
+            <div class="pull-left">
+                <div class="copyright">&copy; Copyright CareGiver 2019. All right reserved.</div>
+            </div>
+            <div class="pull-right">
+                <a href="#" class="purchase">Purchase Now</a>
+            </div>
+        </div>
+        
     </div>
-    <!-- End Footer Bottom Area -->
 </footer>
-<!--== End Footer Area Wrapper ==-->
 
-<!-- Start Off Canvas Menu Wrapper -->
-<aside class="off-canvas-wrapper">
-    <div class="off-canvas-overlay"></div>
-    <div class="off-canvas-inner">
-        <!-- Start Off Canvas Content Wrapper -->
-        <div class="off-canvas-content">
-            <div class="off-canvas-item">
-                <!-- Start Mobile Menu Wrapper -->
-                <div class="res-mobile-menu">
-                    <!-- Note Content Auto Generate By Jquery From Main Menu -->
-                </div>
-                <!-- End Mobile Menu Wrapper -->
-            </div>
-
-            <div class="off-canvas-item">
-                <div class="off-canvas-footer text-center">
-                    <div class="social-icons">
-                        <a href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
-                        <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
-                        {{-- <a href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a> --}}
-                        <a href="{{$settings->intagram}}"><i class="fa fa-instagram"></i></a>
-                        {{-- <a href="{{$settings->pinterest}}"><i class="fa fa-pinterest"></i></a> --}}
-                    </div>
-
-                    <div class="copyright-text">
-                        <p> &copy; Copyrights
-                            <script>
-                              // document.write(new Date().getFullYear())
-                           </script>
-                          {{$settings->site_copyright}}
-                       </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Off Canvas Content Wrapper -->
-
-        <button class="btn-close"><i class="fa fa-close"></i></button>
-    </div>
-</aside>
-
+</div>  
 @include('layouts.js')
