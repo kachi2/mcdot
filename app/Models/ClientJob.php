@@ -11,7 +11,7 @@ class ClientJob extends Model
 
     protected $table = 'client_jobs';
     protected $fillable = [
-        'title', 'logo', 'industries_id', 'views', 'applicants','location', 'deadline', 'salary_range', 'job_details', 'company', 'job_type', 'status'
+        'title', 'logo', 'category_id', 'views', 'applicants','location', 'deadline', 'salary_range', 'job_details', 'company', 'job_type', 'status'
 
     ];
 

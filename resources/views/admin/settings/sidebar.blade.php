@@ -13,13 +13,14 @@
         Social Links
     </a>
    
-    <a href="{{route('admin.settings.logo')}}" class="list-group-item">
-        <i data-feather="star" class="mr-2 width-15 height-15"></i>
-        Client Logo
-    </a>
+  
     <a href="{{route('admin.settings.sliders')}}" class="list-group-item">
         <i data-feather="star" class="mr-2 width-15 height-15"></i>
         Page Sliders
+    </a>
+    <a href="{{route('admin.tags.create')}}" class="list-group-item">
+        <i data-feather="star" class="mr-2 width-15 height-15"></i>
+      Add Tagline
     </a>
   
   

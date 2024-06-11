@@ -28,12 +28,7 @@ class PagesController extends Controller
         ]);
            }
         if($menuId->slug == 'jobs'){
-       
-            return view('frontend.jobs',[
-                'jobs' => ClientJob::where('status', '=', 1)->latest()->get(),
-                'breadcrums' => Menu::where('slug', 'jobs')->first(),
-                'industries' => Industry::get(),
-            ]);
+           return app('app/jobsController')->Details();
         }
 
         if($menuId->slug == "FAQ"){

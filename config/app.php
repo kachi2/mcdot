@@ -183,6 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Vinkla\Hashids\HashidsServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -214,6 +215,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'hashids' => Vinkla\Hashids\HashidsServiceProvider::class,
     ])->toArray(),
 
 ];

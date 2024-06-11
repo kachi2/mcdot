@@ -17,7 +17,7 @@
                             
                         </div>
                         <div class="col-md-5">
-                            <img src="{{asset('images/files.svg')}}" alt="..." class="img-fluid">
+                            <img src="{{asset('backend/assets/images/files.svg')}}" alt="..." class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -43,9 +43,9 @@
                             @forelse ($logins as $login)
                             <tr>
                                 <td> 
-                                    @php $details = json_decode(file_get_contents("http://ipinfo.io/$login->login_ip/json"));
+                                    {{-- @php $details = json_decode(file_get_contents("http://ipinfo.io/$login->login_ip/json"));
                                     echo $details->city.", ".$details->country;
-                                    @endphp
+                                    @endphp --}}
                                     </td>
                                 <td class="text-center">{{$login->login_ip}}</td>
                                 <td class="text-center text-success">{{$login->created_at}}</td>
@@ -68,7 +68,7 @@
                 <div class="card-body">
                     <h6 class="card-title">Recent Job Applicants</h6>
                     <ul class="list-group list-group-flush">
-                        @forelse ($applicants as $appl)
+                        @forelse ($applicants->take(5) as $appl)
                         <li class="list-group-item d-flex align-items-center p-l-r-0">
                             
                             <div>
@@ -105,7 +105,7 @@
                                     <div class="d-flex d-sm-block d-lg-flex align-items-end">
                                         <h2 class="mb-0 mr-2 font-weight-bold">{{count($jobs)}}</h2>
                                         <p class="small text-muted mb-0 line-height-20">
-                                            <span class="text-success">{{count($applicant)}}</span> Applicants
+                                            <span class="text-success">{{count($applicants)}}</span> Applicants
                                         </p>
                                     </div>
                                 </div>

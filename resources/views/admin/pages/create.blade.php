@@ -7,7 +7,7 @@
                 @csrf
               <div class="card">
                         <div class="card-body">
-                            <h6 class="card-title">Create Product</h6>
+                            <h6 class="card-title">Create Page</h6>
                             <div class="row">
                             
                                 <div class="col-md-12">

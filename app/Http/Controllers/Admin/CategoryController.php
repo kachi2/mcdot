@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\ClientJob;
 use App\Models\Industry;
@@ -34,8 +35,8 @@ class CategoryController extends Controller
          ]);
          $check = Industry::where('name', $request->name)->first();
          if($check){
-             \Session::flash('alert', 'error');
-             \Session::flash('message','Industry already exist');
+             Session::flash('alert', 'error');
+             Session::flash('message','Industry already exist');
              return back()->withInput();
          }
  
@@ -43,8 +44,8 @@ class CategoryController extends Controller
              'name' => $request->name,
          ]);
          if($menu){
-             \Session::flash('alert', 'success');
-             \Session::flash('message','Industry added successfully');
+             Session::flash('alert', 'success');
+             Session::flash('message','Industry added successfully');
              return back();
          }
      }
@@ -59,8 +60,8 @@ class CategoryController extends Controller
          $menu = Industry::findorfail(decrypt($id));
 
          Industry::where('id', $menu->id)->update(['name' => $request->name]);
-         \Session::flash('alert', 'success');
-         \Session::flash('message',' Industry Updated successfully');
+         Session::flash('alert', 'success');
+         Session::flash('message',' Industry Updated successfully');
          return back();
      }
  
@@ -70,13 +71,13 @@ class CategoryController extends Controller
          $menu = Industry::findorfail(decrypt($id));
          $jobs = ClientJob::where('industries_id', $menu->id)->first();
          if($jobs){
-            \Session::flash('alert', 'error');
-            \Session::flash('message','You cannot delete this Industry, Jobs are already assigned to it');
+            Session::flash('alert', 'error');
+            Session::flash('message','You cannot delete this Industry, Jobs are already assigned to it');
             return back();
          }
          $menu->delete();
-         \Session::flash('alert', 'success');
-         \Session::flash('message','Industry Deleted successfully');
+         Session::flash('alert', 'success');
+         Session::flash('message','Industry Deleted successfully');
          return back();
      }
 }

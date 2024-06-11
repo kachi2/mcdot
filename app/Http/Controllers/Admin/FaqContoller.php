@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\Faq;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class FaqContoller extends Controller
@@ -34,8 +36,8 @@ class FaqContoller extends Controller
         ];
 
         Faq::create($data);
-        \Session::flash('alert', 'success');
-        \Session::flash('alert', 'Faq Added Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('alert', 'Faq Added Successfully');
         return back();
     }
 
@@ -55,8 +57,8 @@ class FaqContoller extends Controller
 
         $faq = Faq::where('id', decrypt($id))->first();
         $faq->fill($data)->save();
-        \Session::flash('alert', 'success');
-        \Session::flash('alert', 'FAQ Updated Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('alert', 'FAQ Updated Successfully');
         return back();
     }
 
@@ -64,12 +66,12 @@ class FaqContoller extends Controller
         $data = Faq::where('id', decrypt($id))->first();
         if($data){
             $data->delete();
-            \Session::flash('alert', 'error');
-            \Session::flash('alert', 'FAQ Deleted Successfully');
+            Session::flash('alert', 'error');
+            Session::flash('alert', 'FAQ Deleted Successfully');
             return back();
         }
-        \Session::flash('alert', 'error');
-        \Session::flash('alert', 'Somthing went wrong');
+        Session::flash('alert', 'error');
+        Session::flash('alert', 'Somthing went wrong');
         return back();
     }
 }

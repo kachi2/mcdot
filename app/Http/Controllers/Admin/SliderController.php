@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\Slider;
 use App\Models\SubMenu;
+use Illuminate\Support\Facades\Session;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SliderController extends Controller
 {
@@ -26,13 +29,13 @@ class SliderController extends Controller
     }
 
     public function StoreSlider(Request $request){
-        $request->validate([
+        $valid = Validator::make($request->all(),[
             'image' => 'required',
             'content' => 'required',
             'title' => 'required',
             'link' => 'integer|required'
         ]);
-       //dd(request()->file('images'));
+
 
         if($request->file('image')){
             $image = $request->file('image');
@@ -50,8 +53,8 @@ class SliderController extends Controller
         ];
 
         Slider::create($data);
-        \Session::flash('alert', 'success');
-        \Session::flash('alert', 'Slider Added Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message', 'Slider Added Successfully');
         return back();
     }
 
@@ -84,8 +87,8 @@ class SliderController extends Controller
             'links' => $link
         ];
          $sl->fill($data)->save();
-        \Session::flash('alert', 'success');
-        \Session::flash('alert', 'Slider Updated Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('alert', 'Slider Updated Successfully');
         return back();
     }
 
@@ -93,28 +96,28 @@ class SliderController extends Controller
         $slider = Slider::where('id', decrypt($id))->first();
         if($slider){
             $slider->delete();
-            \Session::flash('alert', 'error');
-            \Session::flash('alert', 'Slider Deleted Successfully');
+            Session::flash('alert', 'error');
+            Session::flash('alert', 'Slider Deleted Successfully');
             return back();
         }
-        \Session::flash('alert', 'error');
-        \Session::flash('alert', 'Somthing went wrong');
+        Session::flash('alert', 'error');
+        Session::flash('alert', 'Somthing went wrong');
         return back();
     }
 
     public function ActivateSlider($id){
         $slid = Slider::where('id', decrypt($id))->first();
         $slid->update(['status' => 1]);
-        \Session::flash('alert', 'success');
-        \Session::flash('alert', 'Slider Activated Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('alert', 'Slider Activated Successfully');
         return back();
     }
     
     public function DeactivateSlider($id){
         $slid = Slider::where('id', decrypt($id))->first();
         $slid->update(['status' => null]);
-        \Session::flash('alert', 'error');
-        \Session::flash('alert', 'Slider Deactivated Successfully');
+        Session::flash('alert', 'error');
+        Session::flash('alert', 'Slider Deactivated Successfully');
         return back();
     }
    

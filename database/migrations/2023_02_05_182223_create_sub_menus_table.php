@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('image')->nullable();
             $table->string('slug')->nullable();
+            $table->string('title')->nullable();
             $table->integer('is_active')->nullable();
             $table->timestamps();
         });

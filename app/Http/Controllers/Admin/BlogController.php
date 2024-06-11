@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use Illuminate\Support\Facades\Session;
+
 class BlogController extends Controller
 {
     
@@ -46,13 +49,13 @@ class BlogController extends Controller
             $data['image'] = $fileName;
         }
          Blog::create($data);
-        \Session::flash('alert', 'success');
-        \Session::flash('message','Page added successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message','Page added successfully');
         return back();
     
    }catch(\Exception $e){
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Request Failed, try again');
+        Session::flash('alert', 'error');
+        Session::flash('message','Request Failed, try again');
         return back()->withInput();
     }
     }
@@ -83,13 +86,13 @@ class BlogController extends Controller
             $blog->image = $fileName;
         }
         $blog->save();
-        \Session::flash('alert', 'success');
-        \Session::flash('message','Blog added successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message','Blog added successfully');
         return back();
     
     }catch(\Exception $e){
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Request Failed, try again');
+        Session::flash('alert', 'error');
+        Session::flash('message','Request Failed, try again');
         return back()->withInput();
     }
     }
@@ -98,24 +101,24 @@ class BlogController extends Controller
     public function BlogsDelete($id){
         $blog = Blog::whereId(decrypt($id))->first();
         $blog->delete();
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Page Deleted successfully');
+        Session::flash('alert', 'error');
+        Session::flash('message','Page Deleted successfully');
         return back();
     }
 
     public function BlogsActivate($id){
         $blog = Blog::whereId(decrypt($id))->first();
         $blog->update(['status' => 1]);
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Page Updated successfully');
+        Session::flash('alert', 'error');
+        Session::flash('message','Page Updated successfully');
         return back();
     }
 
     public function BlogsDisable($id){
         $blog = Blog::whereId(decrypt($id))->first();
         $blog->update(['status' => 0]);
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Page Update successfully');
+        Session::flash('alert', 'error');
+        Session::flash('message','Page Update successfully');
         return back();
 }
 

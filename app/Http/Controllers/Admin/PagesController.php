@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\Menu;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\SubMenu;
 
-class ManagePagesController extends Controller
+class PagesController extends Controller
 {
     //
 
@@ -49,8 +51,8 @@ class ManagePagesController extends Controller
             $data['sub_menu_id'] = $request->subMenu_id;
             $subChek = SubMenu::where(['id' => $request->subMenu_id])->first();
             if($subChek->is_active == 1){
-                \Session::flash('alert', 'error');
-                \Session::flash('message', 'You cannot assign a page to this Menu, a page already exit, you can delete the page to reassign');
+                Session::flash('alert', 'error');
+                Session::flash('message', 'You cannot assign a page to this Menu, a page already exit, you can delete the page to reassign');
                 return back()->withInput();
             }
             $subChek->update(['is_active' => 1]);
@@ -58,8 +60,8 @@ class ManagePagesController extends Controller
             $data['menu_id'] = $request->menu_id;
             $MenuChek = Menu::where(['id' => $request->menu_id])->first();
             if($MenuChek->is_active == 1){
-                \Session::flash('alert', 'error');
-                \Session::flash('message', 'You cannot assign a page to this Menu, a page already exit, you can delete the page to reassign');
+                Session::flash('alert', 'error');
+                Session::flash('message', 'You cannot assign a page to this Menu, a page already exit, you can delete the page to reassign');
             return back()->withInput();
             }
             $MenuChek->update(['is_active' => 1]);
@@ -79,13 +81,13 @@ class ManagePagesController extends Controller
         }
         
         Page::create($data);
-        \Session::flash('alert', 'success');
-        \Session::flash('message','Page added successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message','Page added successfully');
         return back();
     
     }catch(\Exception $e){
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Request Failed, try again');
+        Session::flash('alert', 'error');
+        Session::flash('message','Request Failed, try again');
         return back()->withInput();
     }
 }
@@ -116,8 +118,8 @@ class ManagePagesController extends Controller
         }
         Page::where('id', decrypt($id))
         ->update($data);
-        \Session::flash('alert', 'success');
-        \Session::flash('message','Page updated successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message','Page updated successfully');
         return back();
         
     }
@@ -125,24 +127,24 @@ class ManagePagesController extends Controller
     public function PagesDelete($id){
         $page = Page::where('id', decrypt($id))->first();
         $page->delete();
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Page Deleted successfully');
+        Session::flash('alert', 'error');
+        Session::flash('message','Page Deleted successfully');
         return back();
     }
 
     public function PagesActivate($id){
         $page = Page::where('id', decrypt($id))->first();
         $page->update(['status' => 1]);
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Page Updated successfully');
+        Session::flash('alert', 'error');
+        Session::flash('message','Page Updated successfully');
         return back();
     }
 
     public function PagesDisable($id){
         $page = Page::where('id', decrypt($id))->first();
         $page->update(['status' => 0]);
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Page Update successfully');
+        Session::flash('alert', 'error');
+        Session::flash('message','Page Update successfully');
         return back();
     }
 }

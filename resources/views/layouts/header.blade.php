@@ -21,9 +21,7 @@
 					<div class="language dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"> EN &nbsp;<span class="fa fa-caret-down"></span></a>
 						<ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu1">
 							<li><a href="#">English</a></li>
-							<li><a href="#">German</a></li>
-							<li><a href="#">Arabic</a></li>
-							<li><a href="#">Hindi</a></li>
+						
 						</ul>
 					</div>
                 </div>
@@ -37,7 +35,7 @@
                 <div class="auto-container clearfix">
                     <!--Info-->
                     <div class="logo-outer">
-                        <div class="logo"><a href="{{route('index')}}"><img src="{{$settings->logo}}" alt="" title="" width="250px"></a></div>
+                        <div class="logo"><a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="" title="" width="220px"></a></div>
                     </div>
 
                     <!--Nav Box-->
@@ -53,7 +51,20 @@
                             
                             <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
+
                                     @foreach ($menus as $menu )
+                                    <li class="@if($menu->has_child) dropdown @else @endif ">@if($menu->name == 'Home') <a href="{{route('index')}}">{{$menu->name}}</a> @else <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
+                                        @if(count($menu->subMenu) > 0)
+                                        <ul class="dropdown">
+                                            @forelse ($menu->subMenu as $sub ) 
+                                            <li><a href="">{{$sub->name}}</a></li>   
+                                            @empty
+                                            @endforelse
+                                        </ul>
+                                    </li>
+                                    @endif
+                                    @endforeach
+                                    {{-- @foreach ($menus as $menu )
                                  @if($menu->has_child)
                                         <li class="dropdown">
                                             <a href="{{route($menu->slug)}}">{{$menu->name}} 
@@ -62,7 +73,7 @@
                                         <ul>
                                             @forelse ($menu->subMenu as $sub ) 
                                             <li >
-                                                <a  href="{{route($sub->slug)}}">{{$sub->name}}</a> 
+                                                <a  href="{{route('subpages', encrypt($sub->id))}}">{{$sub->name}}</a> 
                                             </li>
                                             @empty
                                             @endforelse
@@ -71,10 +82,10 @@
                                      </li>
                                     @else
                                     <li>
-                                   <a class="nav-link" href="{{route($menu->slug)}}">{{$menu->name}}</a> 
+                                        <li class="@if($menu->has_child) dropdown-navbar @else @endif ">@if($menu->name == 'Home') <a href="{{route('index')}}">{{$menu->name}}</a> @else <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
                                     </li>
                                     @endif
-                                    @endforeach
+                                    @endforeach --}}
                                 </ul>
                             </div>
                         </nav>
@@ -84,7 +95,7 @@
                         <div class="outer-box clearfix">
                             <!-- Button Box -->
                             <div class="btn-box">
-                                <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Ask a Question</span></a>
+                                <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Find Jobs</span></a>
                             </div>
                         </div>
                     </div>

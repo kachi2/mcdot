@@ -24,7 +24,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <div class="form-group">
                                     <input type="text" placeholder="Enter Job Id" name="industry_id"  value="{{old('industry_id')}}" class="form-control @error('industry_id') is-invalid @enderror" id="exampleInputEmail1" list="cityname">
                                     <small id="emailHelp" class="form-text text-muted">Enter Job Id
@@ -39,22 +39,25 @@
                                                           @enderror
                                                 </datalist>
                                         </div>
-                                    </div>
-                                    {{-- <div class="col-md-6">
+                                    </div> --}}
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="jobId" placeholder="Enter Job Id"> 
-                                            <select type="text" name="industry_id"  value="{{old('industry_id')}}" class="form-control @error('industry_id') is-invalid @enderror" id="exampleInputEmail1"
+                                            
+                                            <select type="text" name="category_id"  value="{{old('category_id')}}" class="form-control @error('category_id') is-invalid @enderror" id="exampleInputEmail1"
                                             aria-describedby="emailHelp" placeholder="Select Industries">
-                                            @forelse ($industries as $ind)
-                                            <option value="{{$ind->id}}"> {{$ind->name}} </option>
+                                         
+                                            @forelse ($category as $catts)
+                                            <option value="{{$catts->id}}"> {{$catts->name}} </option>
                                             @empty
                                             @endforelse
-                                                  @error('industry_id')
+                                                  @error('category_id')
                                                   <span class="invalid-feedback"> <small> *</small> </span>
                                                   @enderror
                                             </select>
+
+                                            <small id="emailHelp" class="form-text text-muted">   Select Job Category </small>
                                           </div>
-                                        </div> --}}
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" name="location"  value="{{old('location')}}" class="form-control @error('location') is-invalid @enderror" id="exampleInputEmail1"
@@ -68,8 +71,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <input type="text" name="daterangepicker" value="{{old('daterangepicker')}}" class="form-control @error('daterangepicker') is-invalid @enderror" id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp" placeholder="Enter job deadline">
-                                                   <small id="emailHelp" class="form-text text-muted">Enter job deadline
+                                                    aria-describedby="emailHelp" placeholder="Enter deadline date">
+                                                   <small id="emailHelp" class="form-text text-muted">Application closing date
                                                           </small>
                                                           @error('daterangepicker')
                                                           <span class="invalid-feedback"> <small> *</small> </span>
@@ -88,7 +91,7 @@
                                                   </div>
                                             </div> 
 
-                                            <div class="col-md-6">
+                                            {{-- <div class="col-md-6">
                                                 <div class="form-group">
                                                     <input type="text" name="company" value="{{old('company')}}" class="form-control @error('company') is-invalid @enderror" id="exampleInputEmail1"
                                                     aria-describedby="emailHelp" placeholder="Enter Company">
@@ -98,11 +101,15 @@
                                                           <span class="invalid-feedback"> <small> *</small> </span>
                                                           @enderror
                                                   </div>
-                                            </div> 
+                                            </div>  --}}
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" name="job_type" value="{{old('job_type')}}" class="form-control @error('job_type') is-invalid @enderror" id="exampleInputEmail1"
+                                                    <select type="text" name="job_type" value="{{old('job_type')}}" class="form-control @error('job_type') is-invalid @enderror" id="exampleInputEmail1"
                                                     aria-describedby="emailHelp" placeholder="Enter Job Type">
+                                                    <option value="Full-Time"> Full-Time</option>
+                                                    <option value="Part-Time"> Part-Time</option>
+                                                    <option value="Contract"> Contract</option>
+                                                    </select>
                                                    <small id="emailHelp" class="form-text text-muted">Enter Job Type
                                                           </small>
                                                           @error('job_type')

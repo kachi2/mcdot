@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use App\Models\Setting;
 
@@ -65,12 +67,12 @@ class SettingsController extends Controller
 
         $ttm = Testimonial::create($req);
         if($ttm){
-            \Session::flash('alert', 'success');
-            \Session::flash('message', 'Testimonial Added Successfully');
+            Session::flash('alert', 'success');
+            Session::flash('message', 'Testimonial Added Successfully');
             return back();
         }else{
-            \Session::flash('alert', 'error');
-            \Session::flash('message', 'Request failed, try again later');
+            Session::flash('alert', 'error');
+            Session::flash('message', 'Request failed, try again later');
             return back();
         }
     }
@@ -91,8 +93,8 @@ class SettingsController extends Controller
         ];
         $testim = Testimonial::where('id', decrypt($id))->first();
         $testim->fill($data)->save();
-        \Session::flash('alert', 'success');
-        \Session::flash('message', 'Testimonial updated Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message', 'Testimonial updated Successfully');
         return back();
     }
 
@@ -100,12 +102,12 @@ class SettingsController extends Controller
         $testim = Testimonial::where('id', decrypt($id))->first();
         if($testim){
             $testim->delete();
-            \Session::flash('alert', 'error');
-            \Session::flash('message', 'Testimonial deleted Successfully');
+            Session::flash('alert', 'error');
+            Session::flash('message', 'Testimonial deleted Successfully');
             return back();
         }
-        \Session::flash('alert', 'error');
-        \Session::flash('message', 'Something went wrong, try again');
+        Session::flash('alert', 'error');
+        Session::flash('message', 'Something went wrong, try again');
         return back();
     
     }
@@ -120,8 +122,8 @@ class SettingsController extends Controller
         ];
         $testim = Setting::first();
         $testim->fill($data)->save();
-        \Session::flash('alert', 'success');
-        \Session::flash('message', 'Testimonial updated Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message', 'Testimonial updated Successfully');
         return back();
     }
 
@@ -133,7 +135,6 @@ class SettingsController extends Controller
             'site_phone' => $request->site_phone,
             'site_email' => $request->site_email,
             'address' => $request->address,
-            'opening_hours' => $request->opening_hours,
             'about' => $request->about_us
         ];
 
@@ -146,8 +147,8 @@ class SettingsController extends Controller
         }
         $testim = Setting::first();
         $testim->fill($data)->save();
-        \Session::flash('alert', 'success');
-        \Session::flash('message', 'Testimonial updated Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message', 'Testimonial updated Successfully');
         return back();
     }
 
@@ -175,12 +176,12 @@ class SettingsController extends Controller
         $user = User::where('id', auth()->user()->id)->first();
       $ss =   $user->fill($data)->save();
       if($ss){
-        \Session::flash('alert', 'success');
-        \Session::flash('message', 'Details Updated Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message', 'Details Updated Successfully');
         return back();
       }else{
-        \Session::flash('alert', 'error');
-        \Session::flash('message', 'Request not completed, Nothing changed ');
+        Session::flash('alert', 'error');
+        Session::flash('message', 'Request not completed, Nothing changed ');
         return back();
 
       }

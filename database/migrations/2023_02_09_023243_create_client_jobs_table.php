@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('client_jobs', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
+            $table->foreignId('category_id');
             $table->string('title')->nullable();
             $table->string('location_id')->nullable();
             $table->string('deadline')->nullable();

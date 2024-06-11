@@ -12,14 +12,13 @@
                         <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                             <div class="footer-widget logo-widget">
                                 <div class="logo">
-                                    <a href="index.html"><img src="images/footer-logo.png" alt="" /></a>
+                                    <a href="index.html"><img src="{{asset('assets/'.$settings->logo)}}"  alt=""  width="150px"/></a>
                                 </div>
-                                <div class="text">CareGiver is a WordPress theme to build Elderly People Care. It has good features and you will love.</div>
+                                <div class="text">{!!substr($settings->about, 0,100) !!}.</div>
                                 <ul class="social-icons">
-                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-google-plus-g"></span></a></li>
+                                    <li><a href="{{$settings->facebook}}"><span class="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="{{$settings->linkedIn}}"><span class="fab fa-linkedin-in"></span></a></li>
+                                    <li><a href="{{$settings->twitter}}"><span class="fab fa-twitter"></span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -30,10 +29,11 @@
                                 <h2>Quick links</h2>
                                 <div class="widget-content">
                                     <ul class="list">
-                                        <li><a href="#">About Hotel</a></li>
-                                        <li><a href="#">Types of Care</a></li>
-                                        <li><a href="#">Testimonials</a></li>
-                                        <li><a href="#">News & Articles</a></li>
+                                        @foreach ($menus as $menu )
+                                        <li > 
+                                        @if($menu->name == 'Home') <a style="color:#d6d2d2" href="{{route('index')}}">{{$menu->name}}</a> @else <a style="color:#d6d2d2" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
+                                       </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -51,11 +51,10 @@
                             <div class="footer-widget contact-widget">
                                 <h2>Contact Info</h2>
                                 <div class="widget-content">
-                                    <a href="tel:1800-574-9687" class="contact-number">(1800) 574 9687</a>
-                                    <ul>
-                                        <li>256, Victory Street, New York <br> City, AZ 550067</li>
-                                        <li>Email :<a href="mailto:info@caregiver.com"> info@caregiver.com</a></li>
-                                    </ul>
+                                    <p style="color:#d6d2d2"><i class="fa fa-map-marker"></i> {{$settings->address}}.</p>
+                                    <p style="color:#d6d2d2"><i class="fa fa-phone"></i>  {{$settings->site_phone}}</p>
+                                    <p style="color:#d6d2d2"><i class="fa fa-envelope-o"></i>  {{$settings->site_email}}</p>
+                                    <p style="color:#d6d2d2"><i class="fa fa-clock-o"></i>  {{$settings->opening_hours}}</p>
                                 </div>
                             </div>
                         </div>
@@ -86,10 +85,7 @@
         <!--Footer Bottom-->
         <div class="footer-bottom clearfix">
             <div class="pull-left">
-                <div class="copyright">&copy; Copyright CareGiver 2019. All right reserved.</div>
-            </div>
-            <div class="pull-right">
-                <a href="#" class="purchase">Purchase Now</a>
+                <div class="copyright">    {{$settings->site_copyright}}</div>
             </div>
         </div>
         

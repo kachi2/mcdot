@@ -31,7 +31,7 @@
 <div id="main">
     <!-- begin::navigation -->
     <div class="navigation">
-        <div class="navigation-menu-tab">
+        <div class="navigation-menu-tab" style="background: #4d273f">
           <div>
                 <div class="navigation-menu-tab-header" data-toggle="tooltip" title="Admin" data-placement="right">
                     <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">

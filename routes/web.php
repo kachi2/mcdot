@@ -20,7 +20,8 @@ use App\Http\Controllers\MenuController as MenuPage;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Check2faController;
-use LDAP\Result;
+use App\Http\Controllers\Controller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,22 +44,16 @@ Route::get('/', [DashboardController::class, 'Index'])->name('index');
 Route::get('/index', [DashboardController::class, 'Index'])->name('index');
 
 Route::controller(PagesController::class)->group(function(){
-Route::get('/page', 'Pages')->name('users.services');
-Route::get('/pages',  "SubPages")->name('users.blogs');
-Route::get('/blog/details/',  'BlogDetails')->name('users.contact-us');
-Route::get('/jobs/industries/',  'JobCategory')->name('users.about-us');
-Route::post('/contactus/request', 'ContactEmails')->name('users.jobs');
-Route::get('/page/sswe', 'Pages')->name('users.homecare-services');
-Route::get('/pages/swews',  "SubPages")->name('users.dementia-care');
-Route::get('/blog/details/wewe',  'BlogDetails')->name('users.elderly-care');
-Route::get('/jobs/industries/asss',  'JobCategory')->name('users.liver-in-care');
-Route::post('/contactus/request/asas', 'ContactEmails')->name('users.nursing');
-Route::post('/contactus/request/asas/sdsds', 'ContactEmails')->name('users.homecare-worker');
-});
+    Route::get('/page/{slug}', 'Pages')->name('pages');
+    Route::get('/pages/{slug}/{submenu}',  "SubPages")->name('subpages');
+    Route::get('/blog/details/{id}',  'BlogDetails')->name('blog.details');
+    Route::get('/jobs/industries/{id}',  'JobCategory')->name('industries-category');
+    Route::post('/contactus/request', 'ContactEmails')->name('contact-email');
+    });
 
-Route::post('/jobs/apply/{id}', [ClientJobController::class, 'ApplyJob'])->name('apply.job');
-Route::get('/job/details/{id}',  [ClientJobController::class, 'Details'])->name('job-details');
-Route::post('/request/services/',  [ClientJobController::class, 'RequestService'])->name('request-service');
+    Route::controller(JobsController::class)->group(function() {
+        Route::get('jobs/details/{job_id}', 'Details')->name('job-details');
+    });
 
 
 require __DIR__.'/auth.php';
