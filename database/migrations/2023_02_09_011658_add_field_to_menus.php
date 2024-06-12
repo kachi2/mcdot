@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('menus', function (Blueprint $table) {
-            //
-            $table->string('slug')->nullable();
-            $table->integer('status')->default(1);
-        });
+        // Schema::table('menus', function (Blueprint $table) {
+        //     //
+        //     $table->string('slug')->nullable();
+        //     $table->integer('status')->default(1);
+        // });
     }
 
     /**

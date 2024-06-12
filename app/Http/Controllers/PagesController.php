@@ -19,36 +19,8 @@ class PagesController extends Controller
     public function Pages($id = null){
         $id = decrypt($id);
         $menuId = Menu::where('id', $id)->first();
-        //dd( $menuId);
-        if($menuId->slug == 'Blog'){
-
-            return view('frontend.blogs', 
-            ['blogs' => Blog::latest()->get(), 'popular' => Blog::where('views', '>', 0)->get(),
-            'breadcrums' => $menuId,
-        ]);
-           }
         if($menuId->slug == 'jobs'){
            return app('app/jobsController')->Details();
-        }
-
-        if($menuId->slug == "FAQ"){
-            return view('frontend.faq', [
-                'faqs' => Faq::latest()->get(),
-                'breadcrums' => $menuId,
-            ]);
-        }
-        if($menuId->slug == 'contact'){
-            return view('frontend.contact', [
-                'breadcrums' => $menuId,
-                'key' => rand(999,1111).substr(base64_encode('sdsjkdsdsd'), 0, 10),
-            ]);
-        }
-        if($menuId->slug == 'quote'){
-            return view('frontend.quotation', [
-                'breadcrums' => $menuId,
-                'services' => SubMenu::where('menu_id', 2)->get(),
-                'key' => rand(999,1111).substr(base64_encode('sdsjkdsdsd'), 0, 10),
-            ]);
         }
        
         if($menuId->has_child){

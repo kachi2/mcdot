@@ -13,20 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sliders', function (Blueprint $table) {
-            $table->id();
-            $table->string('title')->nullable();
-            $table->string('content')->nullable();
-            $table->string('image')->nullable();
-            $table->string('links')->nullable();
-            $table->integer('status')->nullable();
-            $table->string('align')->default('left');
-            $table->string('link')->nullable();
-            $table->string('color')->nullable();
-            $table->string('border_color')->nullable();
-            $table->string('bg_color')->nullable();
-            $table->timestamps();
-        });
+        // Schema::create('sliders', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('title')->nullable();
+        //     $table->string('content')->nullable();
+        //     $table->string('image')->nullable();
+        //     $table->string('links')->nullable();
+        //     $table->integer('status')->nullable();
+        //     $table->string('align')->default('left');
+        //     $table->string('link')->nullable();
+        //     $table->string('color')->nullable();
+        //     $table->string('border_color')->nullable();
+        //     $table->string('bg_color')->nullable();
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sliders');
+        // Schema::dropIfExists('sliders');
     }
 };

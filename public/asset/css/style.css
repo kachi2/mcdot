@@ -4976,10 +4976,11 @@ img{
 
 .page-title{
 	position:relative;
-	padding:95px 0px 95px;
+	padding:40px 0px 40px;
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-position:right center;
+	box-shadow: 1px 1px 1px 1px #411a1a58;
 }
 
 .page-title:before{

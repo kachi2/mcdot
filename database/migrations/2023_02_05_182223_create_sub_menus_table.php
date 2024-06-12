@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sub_menus', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('menu_id')->constrained();
-            $table->string('name')->nullable();
-            $table->string('image')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('title')->nullable();
-            $table->integer('is_active')->nullable();
-            $table->timestamps();
-        });
+        // Schema::create('sub_menus', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('menu_id')->constrained();
+        //     $table->string('name')->nullable();
+        //     $table->string('image')->nullable();
+        //     $table->string('slug')->nullable();
+        //     $table->string('title')->nullable();
+        //     $table->integer('is_active')->nullable();
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_menus');
+        // Schema::dropIfExists('sub_menus');
     }
 };

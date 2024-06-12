@@ -15,8 +15,8 @@ class ClientJob extends Model
 
     ];
 
-    public function industry(){
-        return $this->belongsTo(Industry::class, 'industries_id', 'id');
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     public function JobsApplied(){

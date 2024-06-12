@@ -24,10 +24,10 @@
 	<section class="services-section">
 		<div class="auto-container">
 			<!-- Title Box -->
-			{{-- <div class="title-box">
+			<div class="title-box">
 				<h2>Senior Home Care & Elder Care Services</h2>
 				<div class="bold-text">Our team of registered nurses and skilled healthcare professionals provide in-home nursing to help manage and coordinate recovery at home.</div>
-				<div class="text">Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close
+				{{-- <div class="text">Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close
 					 the loop on focusing solely on the bottom line digital divide with additional clickthroughs from DevOps immersion along. additional clickthroughs from DevOps. </div>
 			
 					</div> --}}
@@ -145,7 +145,7 @@
 				
 				<!-- Service Block Four -->
 		@forelse ($jobs as $job)
-		<div class="col-sm-6 col-lg-4 pt-5">
+	 <div class="col-sm-6 col-lg-4 pt-5">
         <div class="featured-card card h-100 hover-tiltY shadow-md">
             <div class="card-header border-0 bg-transparent pt-3" style="display: flex;justify-content: space-between;">
                 <span><img src="{{asset('assets/'.$settings->logo)}}" width="100px"> </span>
@@ -155,29 +155,22 @@
                 </span>
             </div>
             <div class="card-body py-0 py-lg-2">
-				<p class="card-title" style="color:#000; font-family:Verdana, Geneva, Tahoma, sans-serif" >{{$job->title}}</p>
-                <div class="text-muted">
-                    <i class="fa fa-map-marker"></i>
-                    Location: {{$job->location_id}}
-                </div>
-				<div class="text-muted">
-					<i class="fa fa-money-bill-wave-alt"></i>
-                   Salary:  {{$job->salary_range}}
-                </div>
-				<div class="text-muted">
-					<i class="fa fa-clock"></i>
-                    Deadline: {{$job->deadline}}
-                </div>
-                <p class="mt-1 mt-lg-2 mb-0">{!! substr($job->job_details,0,100) !!}.....</p>
+				<h4 style="font-family:Arial, Sans-serif; font-weight:bold;">{!! $job->title !!}</h4> 
+				<p>Category: <span style="color: brown">  {{$job->category->name}}</span> </p> 
+				  {{-- <p style="color:#0099ff">{{$jo->company}}</p> --}}
+				<span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location_id}}</span>  
+				 <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->job_type}}</span>  
+				  <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->salary_range}} </span> <br>
+				 <p class="pt-2">{!! substr($job->job_details,0,200) !!}...</p>
             </div>
             <div class="card-footer bg-transparent border-0 pb-2 pb-lg-4">
                 <span class="">
-                  <a href="{{route('job-details', $job->hashid)}}" class="badge bg-info p-3" style="color:#fff">View Job Details</a> 
+                  <a href="{{route('job-details', $job->hashid)}}" class="badge w-100 bg-info p-3" style="color:#fff">View Job Details</a> 
                 </span>
   
 			</div>
 		</div>
-	</div>
+	</div> 
 
 			
 	@empty
