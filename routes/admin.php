@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use App\Http\Controllers\Admin\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobsController;
@@ -120,7 +122,9 @@ Route::group(['prefix' => 'manage/website', 'as' => 'admin.'], function(){
         Route::post('/category/update/{id}', 'Update')->name('categoryUpdate');
         Route::get('/category/delete/{id}', 'Delete')->name('categoryDelete');
     });
-    
+
+    Route::resource('about',AboutController::class);
+
 
 });
 });

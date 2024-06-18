@@ -92,8 +92,8 @@ class MenuController extends Controller
     public function SubMenuStore(Request $request, $id){
         $request->validate([
             'name' => 'required',
-            'image' => 'file|required',
-            'title' => 'max:245 | required',
+            'image' => 'nullable',
+            'title' => 'max:245 | nullable',
         ]);
 
         $menu = Menu::where('id', decrypt($id))->first();
@@ -101,16 +101,20 @@ class MenuController extends Controller
             return back();
         }
         Menu::where('id', $menu->id)->update(['has_child' => 1, 'is_active' => 1]);
-
+        $fileName = '';
+        if($request->file('image')){
         $image = $request->file('image');
         $ext = $image->getClientOriginalExtension();
         $fileName = time().'.'.$ext;
         $image->move('images',$fileName);
+       }
+
         $sub = SubMenu::create([
             'menu_id' => $menu->id,
             'name' => $request->name,
             'title' => $request->title,
-            'image' => $fileName
+            'image' => $fileName??null,
+            'slug' => 'users.jobs.category'
         ]);
         if($sub){
         Session::flash('alert', 'success');

@@ -1,105 +1,88 @@
 @extends('layouts.app')
 @section('contents')
-@if(!isset($breadcrums))
-<div class="page-header-area" style="background: #ddd url('{{asset('/images', $breadcrums->image)}}') no-repeat center">
-   @else 
-   <div class="page-header-area" style="background: #ddd url('{{asset('/images')}}') no-repeat center">
-   @endif
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="page-header-title text-center text-md-start">
-                    {{-- <h1>Blog Details</h1> --}}
-                </div>
-            </div>
 
-            <div class="col-md-6 col-lg-8">
-                {{-- <nav class="page-header-breadcrumb text-center text-md-end">
-                    <ul class="breadcrumb">
-                        <li><a href="{{route('index')}}">Home</a></li>
-                        <li class="active"><a href="">Blog Details</a></li>
-                    </ul>
-                </nav> --}}
-            </div>
+	<!--Page Title-->
+    <section class="page-title" style="background-image:url(images/background/3.jpg)">
+    	<div class="auto-container">
+        	<h2>Blog</h2>
+            <ul class="page-breadcrumb">
+            	<li><a href="{{route('index')}}">home</a></li>
+                <li>Blog</li>
+            </ul>
         </div>
-    </div>
-</div>
-<!-- Start Page Content Wrapper -->
-<div class="page-content-wrap pt-90 pt-sm-60 pb-90 pb-sm-60 mb-xl-30">
-    <div class="blog-details-page-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 order-1 order-lg-0">
-                    <div class="sidebar-area mt-md-58 mt-sm-58">
-                        <aside class="sidebar-wrapper">
+    </section>
+    <!--End Page Title-->
+	
+	<!--Sidebar Page Container-->
+    <div class="sidebar-page-container">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	
+                <!--Content Side / Blog Classic -->
+                <div class="content-side col-lg-9 col-md-12 col-sm-12">
+                	
+					<div class="blog-single padding-right">
+						<div class="inner-box">
+							<div class="image">
+								<img src="{{asset('images/'.$blog->image)}}" alt="{{asset('images/'.$blog->image)}}" />
+							</div>
+							<div class="lower-content">
+								<div class="upper-box clearfix">
+									<div class="posted-date pull-left">{{$blog->created_at->format('d M, Y')}}</div>
+									<ul class="post-meta pull-right">
+										<li>By :  Admin</li>
+									</ul>
+								</div>
+								<div class="lower-box">
+									<h3>{{$blog->title}} </h3>
+									<div class="text">
+                                        {!! $blog->contents !!}
+									</div>
+								</div>
+							</div>
+						</div>
+                        
+                    	
+                       
+                        
+                    </div>
+					
+				</div>
+				
+				<!--Sidebar Side-->
+               <div class="sidebar-side col-lg-3 col-md-12 col-sm-12">
+					<aside class="sidebar style-two">
+						
+						<!-- Search -->
+                        <div class="sidebar-widget search-box">
+                        	<form method="post" action="">
+                                <div class="form-group">
+                                    <input type="search" name="search-field" value="" placeholder="Enter Search Keywords" required>
+                                    <button type="submit"><span class="icon fa fa-search"></span></button>
+                                </div>
+                            </form>
+						</div>
+						<!-- Popular Posts -->
+                        <div class="sidebar-widget popular-posts">
+                            <div class="sidebar-title"><h2>Recent Blog</h2></div>
+
+                            @forelse($popular as $recent)
+                            <article class="post">
+                                <figure class="post-thumb"><a href="{{route('users.blogs.details', $recent->hashid)}}"><img src="{{asset('images/'.$recent->image)}}" alt=""></a></figure>
+                                <div class="text"><a href="{{route('users.blogs.details', $recent->hashid)}}">{{$recent->title}}</a></div>
+                                <div class="post-info">{{$recent->created_at->format('d M, Y')}}</div>
+                            </article>
+
+                            @empty 
+                            @endforelse
                            
 
-                            <!-- Start Single Sidebar -->
-                            <div class="sidebar-item">
-                                <h3 class="sidebar-title">Recent Blogs</h3>
-                                <div class="sidebar-body">
-                                    @forelse($popular as $post)
-                                    <div class="recent-news-item">
-                                        <figure class="recent-news-item__thumb">
-                                            <a href="{{route('blog.details', encrypt($post->id))}}"><img src="{{asset('images/'.$post->image)}}"
-                                                                             alt="Recent News"/></a>
-                                        </figure>
-
-                                        <div class="recent-news-item__info">
-                                            <h3><a href="{{route('blog.details', encrypt($post->id))}}">{{$post->title}}</a></h3>
-                                            <div class="news-meta">
-                                                {{-- <span class="post-date"><i class="fa fa-clock-o"></i>{{$post->created_at->format('d/m/y')}}</span> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @empty 
-
-                                    @endforelse
-                                </div>
-                            </div>
-                            <!-- End Single Sidebar -->
-
-                            <!-- Start Single Sidebar -->
-                         
-                            <!-- End Single Sidebar -->
-                        </aside>
-                    </div>
-                </div>
-
-                <div class="col-lg-8 order-0">
-                    <article class="blog-details-content">
-                        <figure class="blog-thumb">
-                            <img src="{{asset('images/'.$blogs->image)}}" alt="Blog" width="200px" height="auto">
-                        </figure>
-
-                        <div class="blog-info">
-                            <h2>{{$blogs->title}}</h2>
-                            <div class="blog-meta">
-                                {{-- <a href="blog-details.html" class="post-date"><i class="fa fa-clock-o"></i> --}}
-                                   {{-- {{$blogs->created_at->format('d/M/Y')}}</a> --}}
-                              
-                              
-                            </div>
-
-                            <p>{!! $blogs->contents !!}</p>
                         </div>
-
-                        <div class="blog-share">
-                            {{-- <h4><i class="fa fa-share-alt"></i> Share:</h4>
-                            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-reddit"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-digg"></i></a> --}}
-                        </div>
-                    </article>
-
-                    <!-- Start Comment Area Wrapper -->
-                   
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+						
+					</aside>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 @endsection

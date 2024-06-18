@@ -176,6 +176,7 @@ p{
 	min-width:300px;
 	overflow: hidden;
 	z-index: 9;
+	background: #eeeeee24;
 }
 
 ul,li{

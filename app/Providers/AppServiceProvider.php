@@ -29,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function($view){
         $menus = Menu::where('status', 1)->get();
+        $menus->load('subMenu');
+        foreach($menus as $mm){HashIds($mm->subMenu);}
+        HashIds($menus);
+        // dd($menus);
         $view->with('menus', $menus);
 
         $view->with('settings', Setting::latest()->first());

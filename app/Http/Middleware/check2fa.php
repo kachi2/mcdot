@@ -21,7 +21,7 @@ class check2fa
         
         if(auth()->user()->is_verified == null ){
             
-            return redirect()->route('check2fa');
+            // return redirect()->route('check2fa');
         }
         return $next($request);
     }

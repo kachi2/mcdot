@@ -28,26 +28,8 @@
                     <li><a href="{{route('admin.Pages.Create')}}">Create Page</a></li>
               </ul>
         </li>
-        <li>
-            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage FAQ"
-               data-nav-target="#dashboards">
-                <i class=" fa fa-question-circle"></i>&nbsp; Manage FAQ</a>
-                <ul>
-                    <li><a href="{{route('admin.faqCreate')}}">Create FAQ</a></li>
-                    <li><a href="{{route('admin.faq.index')}}">Manage FAQ</a></li>
-                </ul>
-            </li>
-      
-         <li>
-            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Blogs"
-               data-nav-target="#dashboards">
-                <i class="fa fa-newspaper-o"></i>&nbsp; Manage Blog</a>
-                <ul>
-                      <li><a href="{{route('admin.BlogsCreate')}}">Post Blog</a></li>
-                      <li><a href="{{route('admin.blogs.index')}}">Manage Blog</a></li>
-                </ul>
-        </li>  
-        
+
+
         <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Jobs"
                data-nav-target="#dashboards">
@@ -58,6 +40,36 @@
                       <li><a href="{{route('admin.category.index')}}">Manage Job Id </a> </li>
                 </ul>
         </li> 
+
+
+        <li>
+            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Blogs"
+               data-nav-target="#dashboards">
+                <i class="fa fa-newspaper-o"></i>&nbsp; Manage Blog</a>
+                <ul>
+                      <li><a href="{{route('admin.BlogsCreate')}}">Post Blog</a></li>
+                      <li><a href="{{route('admin.blogs.index')}}">Manage Blog</a></li>
+                </ul>
+        </li>  
+        
+        <li>
+            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage FAQ"
+               data-nav-target="#dashboards">
+                <i class=" fa fa-building"></i>&nbsp; The Company</a>
+                <ul>
+                    <li><a href="{{route('admin.about.index')}}">View Info</a></li>
+                </ul>
+            </li>
+        <li>
+            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage FAQ"
+               data-nav-target="#dashboards">
+                <i class=" fa fa-question-circle"></i>&nbsp; Manage FAQ</a>
+                <ul>
+                    <li><a href="{{route('admin.faqCreate')}}">Create FAQ</a></li>
+                    <li><a href="{{route('admin.faq.index')}}">Manage FAQ</a></li>
+                </ul>
+            </li>
+      
         
         
         <li class="navigation-divider">Settings</li>

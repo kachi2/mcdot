@@ -53,11 +53,11 @@
                                 <ul class="navigation clearfix">
 
                                     @foreach ($menus as $menu )
-                                    <li class="@if($menu->has_child) dropdown @else @endif ">@if($menu->name == 'Home') <a href="{{route('index')}}">{{$menu->name}}</a> @else <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
+                                    @if($menu->has_child) <li class="dropdown"> <a href="#">{{$menu->name}}</a>@else <li> <a href="{{route($menu->slug)}}">{{$menu->name}}</a>@endif
                                         @if(count($menu->subMenu) > 0)
                                         <ul class="dropdown">
-                                            @forelse ($menu->subMenu as $sub ) 
-                                            <li><a href="">{{$sub->name}}</a></li>   
+                                            @forelse ($menu->subMenu as $sub) 
+                                            <li><a href="{{route($sub->slug, $sub->hashid)}}">{{$sub->name}}</a></li>   
                                             @empty
                                             @endforelse
                                         </ul>

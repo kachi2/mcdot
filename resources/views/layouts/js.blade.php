@@ -22,11 +22,13 @@
 <script src="{{asset('/asset/js/jquery.fancybox.js')}}"></script>
 <script src="{{asset('/asset/js/owl.js')}}"></script>
 <script src="{{asset('/asset/js/wow.js')}}"></script>
+<script src="{{asset('/asset/js/validate.js')}}"></script>
 <script src="{{asset('/asset/js/appear.js')}}"></script>
 <script src="{{asset('/asset/js/script.js')}}"></script>
+
 <!--Google Map APi Key-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
-<script src="js/map-script.js"></script>
+<script src="{{asset('/asset/js/map-script.js')}}"></script>
 <!--End Google Map APi-->
 </body>
 </html>

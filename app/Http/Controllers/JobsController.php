@@ -27,6 +27,16 @@ class JobsController extends Controller
        ->with('categories', $categ);
     }
 
+    public function Category($category_id){
+      $jobs = ClientJob::where('category_id', decryptId($category_id))->get();
+      $category = Category::orderBy('name', 'DESC')->get();
+      HashIds($category);
+      HashIds($jobs);
+      return view('frontend.jobs')
+      ->with('jobs', $jobs)
+      ->with('category', $category);
+    }
+
 
     public function ApplyJob(Request $request, $job_id){
         $job = ClientJob::where('id', decryptId($job_id))->first();

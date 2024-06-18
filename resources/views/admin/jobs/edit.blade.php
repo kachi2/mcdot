@@ -27,20 +27,22 @@
                                         
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                  <input type="text" placeholder="Enter Job Id" name="industry_id"  value="{{old('industry_id')}}" class="form-control @error('industry_id') is-invalid @enderror" id="exampleInputEmail1" list="cityname">
-                                  <small id="emailHelp" class="form-text text-muted">Enter Job Id
-                                  </small>
-                                  <datalist id="cityname">
-                                                  @forelse ($industries as $ind)
-                                                  <option value="{{$ind->name}}"> {{$ind->name}} </option>
-                                                  @empty
-                                                  @endforelse
-                                                        @error('industry_id')
-                                                        <span class="invalid-feedback"> <small> *</small> </span>
-                                                        @enderror
-                                              </datalist>
+                                          
+                                          <select type="text" name="category_id"  value="{{old('category_id')}}" class="form-control @error('category_id') is-invalid @enderror" id="exampleInputEmail1"
+                                          aria-describedby="emailHelp" placeholder="Select Industries">
+                                       
+                                          @forelse ($category as $catts)
+                                          <option value="{{$catts->id}}"> {{$catts->name}} </option>
+                                          @empty
+                                          @endforelse
+                                                @error('category_id')
+                                                <span class="invalid-feedback"> <small> *</small> </span>
+                                                @enderror
+                                          </select>
+
+                                          <small id="emailHelp" class="form-text text-muted">   Select Job Category </small>
+                                        </div>
                                       </div>
-                                  </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input type="text" name="location"  value="{{$job->location}}" class="form-control @error('location') is-invalid @enderror" id="exampleInputEmail1"
@@ -101,7 +103,7 @@
                                                 <div class="col-md-12">
                                                 <div class="form-group">
                                                 <textarea id="summernote"  class="@error('contents') is-invalid @enderror" name="contents">{{$job->job_details}}</textarea>
-                                                <small id="emailHelp" class="form-text text-muted">News Contents
+                                                <small id="emailHelp" class="form-text text-muted"> Job description
                                                         </small>
                                                         @error('contents')
                                                         <span class="invalid-feedback"> <small> *</small> </span>
@@ -110,21 +112,7 @@
 
 
                                          </div>
-
-                                          <div class="col-md-6 pt-4">
-                                            <img src="{{asset('images/'.$job->logo)}}" width="100px">
-                                              <div class="custom-file">
-                                            <input type="file" name="image" class="custom-file-input  @error('image') is-invalid @enderror">
-                                                <label class="custom-file-label" for="customFile">Choose company Logo</label>
-                                            </div>
-                                            <small id="emailHelp" class="form-text text-muted"> Choose company Logo 
-                                            </small>
-                                              @error('image')
-                                            <span class="invalid-feedback"> <small> *</small> </span>
-                                            @enderror
-                                         </div>
-                                        
-                                            
+      
                             </div> 
                         </div>
                          
@@ -137,7 +125,7 @@
                           </div>
                           <div class="col-md-4">
                         <div class="p-5">
-                             <button type="submit" class="btn btn-primary p-3">Post Job</button>
+                             <button type="submit" class="btn btn-primary p-3">Update Job</button>
                            </div>
                            </div>
                            </div>

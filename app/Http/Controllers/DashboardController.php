@@ -18,8 +18,8 @@ class DashboardController extends Controller
 
     public function Index(){
         $jobs =  ClientJob::latest()->get();
-        HashIds($jobs);
-   
+       $ss = HashIds($jobs);
+
         return view('frontend.dashboard', [
             'sliders' => Slider::where('status', 1)->get(),
             'blogs' => Blog::where('status', 1)->latest()->get(),

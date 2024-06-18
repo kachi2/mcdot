@@ -1,117 +1,124 @@
 @extends('layouts.app')
 @section('contents')
-
-@if(isset($breadcrums))
-<div class="page-header-area" style="background: #ddd url('{{asset('/images/'.$breadcrums->image)}}')   center; ">
-   @else 
-   <div class="page-header-area" style="background: #ddd url('{{asset('/images')}}') no-repeat center">
-   @endif
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="page-header-title text-center text-md-start">
-                    {{-- <h1>Blog Details</h1> --}}
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-8">
-                {{-- <nav class="page-header-breadcrumb text-center text-md-end">
-                    <ul class="breadcrumb">
-                        <li><a href="{{route('index')}}">Home</a></li>
-                        <li class="active"><a href="">Blog Details</a></li>
-                    </ul>
-                </nav> --}}
-            </div>
+	<!--Page Title-->
+    <section class="page-title" style="background-image:url(images/background/3.jpg)">
+    	<div class="auto-container">
+        	<h2>Contact Us</h2>
+            <ul class="page-breadcrumb">
+            	<li><a href="index.html">home</a></li>
+                <li>Contact Us</li>
+            </ul>
         </div>
-    </div>
-</div>
+    </section>
+    <!--End Page Title-->
+	
+	<!-- Contact Form Section -->
+	<section class="contact-form-section">
+		<div class="auto-container">
+			
+			<!-- Title Box -->
+			<div class="title-box">
+				<h2>Contact {{$settings->site_name}}</h2>
+				<div class="fw-bold">We are more than happy to speak to you regarding any of our services or for some general advice. To speak to a member of staff at Kare Plus, use the contact details below, alternatively leave us an email using the contact form to the right:</div>
+				
+			</div>
+			
+			<div class="row clearfix">
+				
+				<!-- Form Column -->
+				<div class="form-column col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-column">
+						
+						<!-- Default Form -->
+						<div class="default-form contact-form">
+							<form method="post" action="" id="contact-form">
+								
+								<div class="form-group">
+									<input type="text" name="username" value="" placeholder="Name*" required>
+                                    <small> Enter your full Name</small>
+								</div>
+								
+								<div class="form-group">
+									<input type="text" name="phone" value="" placeholder="Phone Number*" required>
+                                    <small> Enter Phone  Number</small>
+								</div>
+                                <div class="form-group">
+									<select>
+                                        <option> Select Services</option>
+                                        @forelse($services as $service)
+                                        <option> {{$service->title}} </option>
+                                        @empty 
+                                        @endforelse
 
-<!-- Start Page Content Wrapper -->
-<div class="page-content-wrap pt-90 pt-sm-60 pb-90 pb-sm-60 mb-xl-30">
-    <div class="contact-page-area-wrapper">
-        <div class="container">
-            <div class="row">
-                
-
-                <div class="col-lg-6 order-2 order-lg-2">
-                    <div class="contact-map mt-md-50 mt-sm-30">
-                        <div id="map_content" class="h-100" data-lat="6.5095" data-lng="3.3711"
-                             data-zoom="12"></div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 order-1 order-lg-1">
-                    @if(Session::has('message'))
-                    <span class="alert alert-{{Session::get('alert')}}"> {{Session::get('message')}}</span>
-                    @endif
-                    <div class="section-title-wrap mb-24 mtm-8">
-                        <h2>Get In Touch</h2>
-                    </div>
-                    <div class="office-info">
-                        <p><i class="fa fa-map-marker"></i> {{$settings->address}}</p>
-                        <p><i class="fa fa-phone"></i> {{$settings->site_phone}}</p>
-                        <p><i class="fa fa-envelope-o"></i> {{$settings->site_email}}</p>
-                        <p><i class="fa fa-clock-o"></i> {{$settings->opening_hours}}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="contact-page-form-area mt-90 mt-sm-60">
-                        <div class="section-title-wrap mb-36 mb-sm-26">
-                            <h2>Get In Touch</h2>
-                        </div>
-
-                        <div class="contact-form">
-                            <form id="" action="{{route('contact-email')}}" method="post">
-                                @csrf
-                                <div class="contact-form-content">
-                                    <div class="row mb-20">
-                                        <div class="col-lg-4">
-                                            <div class="form-input-item">
-                                                <input type="text" value="{{old('name')}}" name="name" placeholder="Your Name*" required/>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4">
-                                            <div class="form-input-item">
-                                                <input type="text" value="{{old('phone')}}" name="phone" placeholder="Your Phone*" required/>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="key" value="{{$key}}"> 
-
-                                        <div class="col-lg-4">
-                                            <div class="form-input-item">
-                                                <input type="email" value="{{old('email')}}" name="email" placeholder="Your Email*"
-                                                       required/>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-input-item">
-                                        <textarea name="message" id="con_message" cols="30" rows="8"
-                                                  placeholder="Write your Message*" required>{{old('message')}}</textarea>
-                                    </div>
-                                    <p> @php echo captcha_img() @endphp </p>
-                                    <p><input type="text" placeholder="Enter captcha" name="captcha" required>
-                                     </p>
-
-
-                                    <div class="form-input-item">
-                                        <button type="submit" class="btn btn-brand">Send Message</button>
+                                    </select>
+                                    <small> Select Services you need from us</small>
+								</div>
+								
+								<div class="form-group">
+									<input type="text" name="email" value="" placeholder="Email*" required>
+                                    <small>Enter Email</small>
+								</div>
+								
+								<div class="form-group">
+									<textarea name="message" placeholder="Your Message"></textarea>
+                                    <small> Please state your request</small>
+								</div>
+                                
+								
+                                <div class="col-lg-6 pt-6">  @php echo captcha_img() @endphp
+                                    <div class="form-input-item form-group">
+                                        <input type="text" class="form-control" placeholder="Enter captcha" name="captcha" required>
                                     </div>
                                 </div>
-
-                                <!-- Show Message Notification -->
-                                <div class="form-message mt-1"></div>
-                            </form>
-                        </div>
-                    </div>
+								
+								<div class="form-group">
+									<button type="submit" class="theme-btn btn-style-one"><span class="txt">Submit now</span></button>
+								</div>                                     
+								
+							</form>
+						</div>
+						<!--End Default Form-->
+						
+					</div>
+				</div>
+				
+				<!-- Info Column -->
+				<div class="info-column col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<div class="image">
+							<img src="{{asset('asset/images/resource/contact-1.jpg')}}" alt="" />
+						</div>
+						<h3>Head Office:</h3>
+						<div class="text">{{$settings->address}}</div>
+						<ul>
+							<li>Tel: <a href="tel:{{$settings->phone}}">{{$settings->site_phone}}</a></li>
+							<li>Email: <a href="{{$settings->email}}<">{{$settings->site_email}}</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!-- End Contact Form Section -->
+	
+	<!-- Map Section -->
+    <section class="map-section">
+        <div class="outer-container">
+            <div class="map-outer">
+                <div class="map-canvas"
+                    data-zoom="12"
+                    data-lat="-37.817085"
+                    data-lng="144.955631"
+                    data-type="roadmap"
+                    data-hue="#ffc400"
+                    data-title=""
+                    data-icon-path="images/icons/map-marker.png"
+                    data-content="256, Victory Street,, New York <br> City, AZ 550067 <br> (1800) 456 7890 <br> Mon-Sat: 7.00an - 9.00pm <br> Sunday closed">
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+    <!-- End Map Section -->
 
 @endsection

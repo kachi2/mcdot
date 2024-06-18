@@ -99,7 +99,7 @@ class JobsController extends Controller
     public function JobsEdit($id){
         return view('admin.jobs.edit', [
             'job' => ClientJob::where('id', decrypt($id))->first(),
-            'industries' => Industry::get()
+            'category' => Category::get()
         ])
         ->with('bheading', 'Manage Jobs')
         ->with('breadcrumb', 'Edit Jobs');
@@ -148,15 +148,15 @@ class JobsController extends Controller
         $data['status'] = 1;
         
 
-        $checkIndustries = Industry::where('name', 'LIKE', "%$request->industry_id%")->first();
+        $checkIndustries = Category::where('name', 'LIKE', "%$request->industry_id%")->first();
         if($checkIndustries){
             $data['industries_id'] = $checkIndustries->id;
         }else{
-            $crt = Industry::create([
+            $crt = Category::create([
                 'name' =>  $request->industry_id
             ]);
             sleep(1);
-            $checkIndustries = Industry::where('name', '%like', $request->industry_id)->first();
+            $checkIndustries = Category::where('name', '%like', $request->industry_id)->first();
             if($crt){
             $data['industries_id'] = $checkIndustries->id;
             }

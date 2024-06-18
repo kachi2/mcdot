@@ -26,7 +26,7 @@ class PagesController extends Controller
 
     public function PagesCreate(){
         return view('admin.pages.create', [
-            'Pagesmenu' => Menu::get()
+            'Pagesmenu' => Menu::where('name','LIKE','%Services%')->orWhere('name','LIKE', '%Jobs%')->get()
         ])
         ->with('bheading', 'Manage pages')
         ->with('breadcrumb', 'Create Page');
@@ -56,15 +56,6 @@ class PagesController extends Controller
                 return back()->withInput();
             }
             $subChek->update(['is_active' => 1]);
-        }else{
-            $data['menu_id'] = $request->menu_id;
-            $MenuChek = Menu::where(['id' => $request->menu_id])->first();
-            if($MenuChek->is_active == 1){
-                Session::flash('alert', 'error');
-                Session::flash('message', 'You cannot assign a page to this Menu, a page already exit, you can delete the page to reassign');
-            return back()->withInput();
-            }
-            $MenuChek->update(['is_active' => 1]);
         }
         if($request->contents){
             $data['contents'] = $request->contents;
@@ -79,7 +70,7 @@ class PagesController extends Controller
             $image->move('images',$fileName);
             $data['metas'] = $fileName;
         }
-        
+        $data['slug'] = 'users.services';
         Page::create($data);
         Session::flash('alert', 'success');
         Session::flash('message','Page added successfully');

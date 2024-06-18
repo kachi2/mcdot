@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AboutUs extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'about', 'core_values', 'aims_objective'
+    ];
 }

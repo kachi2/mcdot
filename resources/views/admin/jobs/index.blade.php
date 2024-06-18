@@ -31,20 +31,20 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="text-muted small mt-1 mb-3">{{$job->industry->name}}</div>
+                         <div class="text-muted small mt-1 mb-3">{{$job->category->name}}</div>
                         <div class="text-muted small mt-1 mb-3"></div>
                         <div class="progress mb-2" style="height: 5px;">
                             <div class="progress-bar bg-primary"></div>
                         </div>
-                        {{-- <p>{!! substr($blog->contents,0,200) !!}.</p> --}}
+                        <p>{!! substr($job->job_details,0,200) !!}.</p>
                         <div class="row">
                             <div class="col">
                                 <div class="text-muted mb-1 small">Location</div>
-                                <div>{{$job->location}}</div>
+                                <div>{{$job->location_id}}</div>
                             </div>
                             <div class="col">
                                 <div class="text-muted mb-1 small">Post On</div>
-                                <div>{{$job->updated_at->format('d-m-y h:ia')}}</div>
+                                <div>{{$job->created_at->format('d-m-y h:ia')}}</div>
                             </div>
                         </div>
                     </div>

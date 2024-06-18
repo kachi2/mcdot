@@ -19,9 +19,6 @@ class PagesController extends Controller
     public function Pages($id = null){
         $id = decrypt($id);
         $menuId = Menu::where('id', $id)->first();
-        if($menuId->slug == 'jobs'){
-           return app('app/jobsController')->Details();
-        }
        
         if($menuId->has_child){
             $pages['pages'] = SubMenu::where(['menu_id' => $menuId->id, 'is_active' => 1])->get();

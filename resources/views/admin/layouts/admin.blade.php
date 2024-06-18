@@ -109,7 +109,7 @@
 
     <footer>
         <div class="container-fluid">
-            <div>© 2023 {{$settings->site_name}}, All Rights Reserved</a></div>
+            <div>© {{Date('Y')}} {{$settings->site_name}}, {{$settings->site_copyright}}</a></div>
             <div>
                 
             </div>
@@ -182,6 +182,7 @@
 <script>
     CKEDITOR.replace( 'summernote' );
 </script>
+
 {{-- <script>
     ClassicEditor
         .create( document.querySelector( '#summernote' ), {

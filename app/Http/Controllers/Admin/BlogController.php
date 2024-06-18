@@ -44,7 +44,7 @@ class BlogController extends Controller
         if($request->image){
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
-            $fileName = time().'.'.$ext;
+            $fileName = 'Mcdot'.time().'.'.$ext;
             $image->move('images',$fileName);
             $data['image'] = $fileName;
         }

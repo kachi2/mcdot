@@ -165,7 +165,7 @@
             </div>
             <div class="card-footer bg-transparent border-0 pb-2 pb-lg-4">
                 <span class="">
-                  <a href="{{route('job-details', $job->hashid)}}" class="badge w-100 bg-info p-3" style="color:#fff">View Job Details</a> 
+                  <a href="{{route('job-details', $job->hashid)}}" class="badge w-50 bg-info p-3" style="color:#fff">View Job Details</a> 
                 </span>
   
 			</div>
