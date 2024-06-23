@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CVController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\JobsController;
@@ -37,11 +38,10 @@ Route::controller(PagesController::class)->group(function(){
     });
 
  Route::controller(JobsController::class)->group(function() {
-        Route::get('jobs/index', 'Index')->name('users.jobs');
-        Route::get('jobs/category/{category_id}', 'Category')->name('users.jobs.category');
+        Route::get('jobs/category/{category_id?}', 'Category')->name('users.jobs.category');
         Route::get('jobs/details/{job_id}', 'Details')->name('job-details');
         Route::post('job/apply/{job_id}', 'ApplyJob')->name('apply-job');
-    });
+    }); 
 
 Route::controller(ServiceController::class)->group(function(){
 Route::get('/services/{service_id}', '__invoke')->name('users.services');
@@ -56,6 +56,11 @@ Route::get('/blogs', [BlogController::class, 'Index'])->name('users.blogs');
 Route::get('/blogs/details/{blog_id}', [BlogController::class, 'Details'])->name('users.blogs.details');
 Route::get('/about', [AboutController::class, '__invoke'])->name('users.about');
 
+// Route::get('/request/service', [DashboardController::class, 'RequestService'])->name('users.request.service');
+Route::controller(CVController::class)->group(function(){
+
+    Route::get('cv/upload', 'Index')->name('upload.cv');
+});
 
 
 

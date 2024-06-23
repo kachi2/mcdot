@@ -40,7 +40,7 @@ class JobsController extends Controller
             $data['company'] = $request->company;
         }
         if($request->location){
-            $data['location_id'] = $request->location;
+            $data['location'] = $request->location;
         }
         if($request->salary_range){
             $data['salary_range'] = $request->salary_range;

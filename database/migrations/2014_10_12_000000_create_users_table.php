@@ -13,19 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('users', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('name');
-        //     $table->string('email')->unique();
-        //     $table->timestamp('email_verified_at')->nullable();
-        //     $table->string('password');
-        //     $table->rememberToken();
-        //     $table->string('login_ip')->nullable();
-        //     $table->string('last_login')->nullable();
-        //     $table->integer('is_verified')->nullable();
-        //     $table->string('new_login')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->string('login_ip')->nullable();
+            $table->string('last_login')->nullable();
+            $table->integer('is_verified')->nullable();
+            $table->string('new_login')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('users');
+        Schema::dropIfExists('users');
     }
 };

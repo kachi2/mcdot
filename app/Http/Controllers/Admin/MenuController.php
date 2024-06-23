@@ -27,6 +27,7 @@ class MenuController extends Controller
 
     public function Store(Request $request){
 
+        return back();
        $request->validate([
             'name' => 'required'
         ]);

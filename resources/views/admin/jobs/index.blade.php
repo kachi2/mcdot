@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="text-muted mb-1 small">Location</div>
-                                <div>{{$job->location_id}}</div>
+                                <div>{{$job->location}}</div>
                             </div>
                             <div class="col">
                                 <div class="text-muted mb-1 small">Post On</div>

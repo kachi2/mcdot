@@ -8,9 +8,9 @@
                             <div class="d-flex justify-content-between">
                                 <h6 class="card-title">Website</h6>
                                 <div>
-                                    <a href="{{route('admin.addMenu')}}" class="mr-3 btn btn-primary" style="color:aliceblue">
+                                    {{-- <a href="{{route('admin.addMenu')}}" class="mr-3 btn btn-primary" style="color:aliceblue">
                                         <i class="fa fa-bars"> Create New Menu</i>
-                                    </a>
+                                    </a> --}}
                                     <div class="dropdown">
                                         <a href="#" data-toggle="dropdown" aria-haspopup="true"
                                            aria-expanded="false">

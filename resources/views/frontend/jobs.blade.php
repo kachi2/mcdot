@@ -31,7 +31,7 @@
                        <h4 style="font-family:Arial, Sans-serif; font-weight:bold;">{!! $job->title !!}</h4> 
                        <p>Category: <span style="color: brown">  {{$job->category->name}}</span> </p> 
                          {{-- <p style="color:#0099ff">{{$jo->company}}</p> --}}
-                       <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location_id}}</span>  
+                       <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location}}</span>  
                         <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->job_type}}</span>  
                          <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->salary_range}} </span> <br>
                         <p class="pt-2">{!! substr($job->job_details,0,200) !!}...</p>
@@ -65,7 +65,7 @@
                         <ul class="services-list">
                             <li class="active"><a href="">Job Category</a></li>
                             @forelse($category as $categories)
-                            <li><a href="">{{$categories->name}}</a></li>
+                            <li><a href="{{route('users.jobs.category', $categories->hashid)}}">{{$categories->name}}</a></li>
                             @empty 
                             @endforelse
                           

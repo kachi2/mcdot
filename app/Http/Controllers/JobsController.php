@@ -27,8 +27,13 @@ class JobsController extends Controller
        ->with('categories', $categ);
     }
 
-    public function Category($category_id){
+    public function Category($category_id = null){
+    
+      if($category_id){
       $jobs = ClientJob::where('category_id', decryptId($category_id))->get();
+      }else{
+        $jobs = ClientJob::latest()->get();
+      }
       $category = Category::orderBy('name', 'DESC')->get();
       HashIds($category);
       HashIds($jobs);

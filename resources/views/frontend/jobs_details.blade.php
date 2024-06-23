@@ -36,7 +36,7 @@
                                                 {{-- <h6 style="color:#0099ff">{{$job->title}}</h6>   --}}
                                                 {{-- <p style="color:#0099ff">{{$job->company}}</p> --}}
                                                 <p>Category: <span style="color: brown">  {{$job->category->name}}</span> </p> 
-                                                   Location:  <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location_id}}</span> 
+                                                   Location:  <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location}}</span> 
                                                  Job Type:  <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->job_type}}</span>  
                                                  Salary Range:  <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a "> {{$job->salary_range}}</span> <br>
                                                
@@ -140,7 +140,7 @@
                                         <h4 style="font-family:Arial, Sans-serif; font-weight:bold;">{!! $jo->title !!}</h4> 
                                       <p>Category: <span style="color: brown">  {{$jo->category->name}}</span> </p> 
                                         {{-- <p style="color:#0099ff">{{$jo->company}}</p> --}}
-                                      <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$jo->location_id}}</span>  
+                                      <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$jo->location}}</span>  
                                        <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$jo->job_type}}</span>  
                                         <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$jo->salary_range}} </span> <br>
                                        

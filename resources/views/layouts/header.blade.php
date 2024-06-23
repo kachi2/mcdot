@@ -7,23 +7,24 @@
         <div class="header-top">
             <div class="auto-container clearfix">
                 <div class="top-left clearfix">
-                    <div class="text"><span class="icon flaticon-phone-receiver"></span> Need help? Call Us Now : <a href="tel:1800-456-7890" class="number">1800 456 7890</a></div>
+                    <div class="text" ><span class="icon flaticon-phone-receiver"></span> <span style="font-size:15px"> Need help?  <a href="tel:1800-456-7890" class=""   style="font-size:15px">{{$settings->site_phone}}</a> </span></div>
 					
                 </div>
                 <div class="top-right clearfix">
                     <!-- Info List -->
 					<ul class="info-list">
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="blog.html">News & Articles</a></li>
-						<li><a href="contact.html">Franchies Opportunity</a></li>
+                        <li><a href="{{$settings->facebook}}"><span class="fab fa-facebook-f"></span></a></li>
+                        <li><a href="{{$settings->linkedIn}}"><span class="fab fa-linkedin-in"></span></a></li>
+                        <li><a href="{{$settings->twitter}}"><span class="fab fa-twitter"></span></a></li>
+						{{-- <li><a href="contact.html" >Become our Partner</a></li> --}}
                     </ul>
 					<!--Language-->
-					<div class="language dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"> EN &nbsp;<span class="fa fa-caret-down"></span></a>
+					{{-- <div class="language dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"> EN &nbsp;<span class="fa fa-caret-down"></span></a>
 						<ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu1">
 							<li><a href="#">English</a></li>
 						
 						</ul>
-					</div>
+					</div> --}}
                 </div>
             </div>
         </div>
@@ -32,7 +33,7 @@
         <!-- Header Upper -->
         <div class="header-upper">
             <div class="inner-container">
-                <div class="auto-container clearfix">
+                <div class="auto-container clearfix" style="max-width:1430px">
                     <!--Info-->
                     <div class="logo-outer">
                         <div class="logo"><a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="" title="" width="220px"></a></div>
@@ -94,8 +95,12 @@
                         <!-- Main Menu End-->
                         <div class="outer-box clearfix">
                             <!-- Button Box -->
+                           
                             <div class="btn-box">
-                                <a href="contact.html" class="theme-btn btn-style-one"><span class="txt">Find Jobs</span></a>
+                                <a href="contact.html" class="theme-btn btn-style-four"><span class="txt">Post Vacant</span></a>
+                            </div>
+                            <div class="btn-box">
+                                <a href="{{route('upload.cv')}}" class="theme-btn btn-style-one"><span class="txt">Submit CV</span></a>
                             </div>
                         </div>
                     </div>

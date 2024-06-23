@@ -3,16 +3,16 @@
 @section('contents')
 
 @include('frontend.minimal.slider')
-<section class="location-form-section">
+{{-- <section class="location-form-section">
 	<div class="auto-container">
 		<div class="inner-container">
 			<div class="inner-content">
-				<h3>Find CareGivers Jobs</h3>
+				<h3>Find Jobs</h3>
 				<!-- Postal Form Two -->
 				<div class="postal-form-two">
 					<form method="post" action="http://t.commonsupport.com/care-giver/contact.html">
 						<div class="form-group">
-							<input type="email" name="email" value="" placeholder="Enter city or state" required="">
+							<input type="email" name="email" value="" placeholder="Enter job type, categories or city" required="">
 							<button type="submit" class="theme-btn btn-style-three"><span class="txt"> <i class="fa fa-search"></i> Search  Jobs</span></button>
 						</div>
 					</form>
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
 	<section class="services-section">
 		<div class="auto-container">
 			<!-- Title Box -->
@@ -43,10 +43,10 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<div class="content-inner">
-											<h3><a href="elderly-service.html">{{$tag->title}}</a></h3>
+											<h3><a href="">{{$tag->title}}</a></h3>
 											<div class="text">{{$tag->content}}</div>
 											<div class="btn-box">
-												<a href="elderly-service.html" class="theme-btn care-btn">Types of Cares<span class="icon flaticon-logout"></span></a>
+												<a href="" class="theme-btn care-btn">Search Jobs<span class="icon flaticon-logout"></span></a>
 											</div>
 										</div>
 									</div>
@@ -106,7 +106,7 @@
         	
 			<!--Content Column-->
 			<div class="content-column">
-				<div class="image-layer" style="background-image:url({{asset('asset/images/background/pattern-1.png')}}); border-radius:5%" ></div>
+				<div class="image-layer" style="background-image:url({{asset('asset/images/background/pattern-1.png')}}); " ></div>
 				<div class="content-box">
 				{!!$settings->about!!}
 				<a href="" class="btn btn-primary"> Begin Registration</a>
@@ -115,7 +115,7 @@
 			</div>
 			
 			<!--Image Column-->
-        	<div class="image-column" style="background-image: url({{asset('asset/images/resource/video-img.jpg')}}); border-radius:5%">
+        	<div class="image-column" style="background-image: url({{asset('asset/images/resource/video-img.jpg')}}); ">
 			
             </div>
             <!--End Image Column-->
@@ -158,7 +158,7 @@
 				<h4 style="font-family:Arial, Sans-serif; font-weight:bold;">{!! $job->title !!}</h4> 
 				<p>Category: <span style="color: brown">  {{$job->category->name}}</span> </p> 
 				  {{-- <p style="color:#0099ff">{{$jo->company}}</p> --}}
-				<span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location_id}}</span>  
+				<span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location}}</span>  
 				 <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->job_type}}</span>  
 				  <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->salary_range}} </span> <br>
 				 <p class="pt-2">{!! substr($job->job_details,0,200) !!}...</p>
@@ -321,13 +321,13 @@
 				<div class="news-block col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box">
 						<div class="image">
-							<a href="blog-detail.html"><img src="{{asset('images/'.$blog->image)}}" alt="" /></a>
+							<a href="{{route('users.blogs.details', $blog->hashid)}}"><img src="{{asset('images/'.$blog->image)}}" alt="" /></a>
 						</div>
 						<div class="lower-content">
 							<div class="post-date">{{$blog->created_at->format('M d, Y')}}</div>
-							<h3><a href="blog-detail.html">{{$blog->title}} </a></h3>
+							<h3><a href="{{route('users.blogs.details', $blog->hashid)}}">{{$blog->title}} </a></h3>
 							<div class="text">{!!substr($blog->contents, 0,100)!!}</div>
-							<a href="blog-detail.html" class="read-more">Continue Reading ...</a>
+							<a href="{{route('users.blogs.details', $blog->hashid)}}" class="read-more">Continue Reading ...</a>
 						</div>
 					</div>
 				</div>
