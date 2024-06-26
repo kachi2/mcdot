@@ -10,6 +10,7 @@ use App\Http\Controllers\JobsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\VacancyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,10 +59,14 @@ Route::get('/about', [AboutController::class, '__invoke'])->name('users.about');
 
 // Route::get('/request/service', [DashboardController::class, 'RequestService'])->name('users.request.service');
 Route::controller(CVController::class)->group(function(){
-
     Route::get('cv/upload', 'Index')->name('upload.cv');
+    Route::post('/cv/store', 'SubmitCV')->name('store.cv');
 });
 
+Route::controller(VacancyController::class)->group(function(){
+Route::get('/vacancies', 'Index')->name('client.vacancy');
+Route::post('/vacancy/store', 'Store')->name('clients.job_store');
+});
 
 
 

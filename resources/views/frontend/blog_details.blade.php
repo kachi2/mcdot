@@ -4,7 +4,7 @@
 	<!--Page Title-->
     <section class="page-title" style="background-image:url(images/background/3.jpg)">
     	<div class="auto-container">
-        	<h2>Blog</h2>
+			<h4 class="text-white">Blog</h4>
             <ul class="page-breadcrumb">
             	<li><a href="{{route('index')}}">home</a></li>
                 <li>Blog</li>

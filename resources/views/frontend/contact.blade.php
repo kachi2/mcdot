@@ -3,7 +3,7 @@
 	<!--Page Title-->
     <section class="page-title" style="background-image:url(images/background/3.jpg)">
     	<div class="auto-container">
-        	<h2>Contact Us</h2>
+        	<h4 class="text-white">Contact Us</h4>
             <ul class="page-breadcrumb">
             	<li><a href="index.html">home</a></li>
                 <li>Contact Us</li>

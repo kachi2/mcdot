@@ -97,7 +97,7 @@
                             <!-- Button Box -->
                            
                             <div class="btn-box">
-                                <a href="contact.html" class="theme-btn btn-style-four"><span class="txt">Post Vacant</span></a>
+                                <a href="{{route('client.vacancy')}}" class="theme-btn btn-style-four"><span class="txt">Post Vacancy</span></a>
                             </div>
                             <div class="btn-box">
                                 <a href="{{route('upload.cv')}}" class="theme-btn btn-style-one"><span class="txt">Submit CV</span></a>

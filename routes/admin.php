@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\Check2faController;
 use App\Http\Controllers\Admin\TaglineController;
-
+use App\Http\Controllers\Admin\VacancyController;
 
 Route::get('/2fa', [Check2faController::class, 'Index'])->name('check2fa');
 Route::post('/2fa/verify/', [Check2faController::class, 'VerifyCode'])->name('VerifyCodes');
@@ -125,7 +125,13 @@ Route::group(['prefix' => 'manage/website', 'as' => 'admin.'], function(){
 
     Route::resource('about',AboutController::class);
 
-
+    Route::controller(VacancyController::class)->group(function(){
+        Route::get('/vacancies', 'Index')->name('client.vacancy');
+        Route::post('/vacancy/store/{job_id}', 'Store')->name('clients.job_store');
+        Route::get('/vacancy/edit/{job_id}', 'Edit')->name('client.job_edit');
+        Route::post('/vacancy/delete/{job_id}', 'delete')->name('clients.job_delete');
+        });
+        
 });
 });
 });

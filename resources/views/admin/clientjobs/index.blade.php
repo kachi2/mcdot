@@ -1,12 +1,7 @@
 @extends('admin.layouts.admin')
 @section('content')
-
     <div class="container-fluid">
-<div class="row m-2">
-    <a href="{{route('admin.client.vacancy')}}" class="btn btn-success"> View Client Posted Jobs</a>
-</div>
         <div class="row">
-           
             @forelse ($jobs as $job )
             <div class="col-md-4">
                 <div class="card">
@@ -14,9 +9,9 @@
                         <div class="d-flex align-items-center">
                             <h5 class="mb-0">
                                 <a href="#" class="link-2">{{$job->title}}</a> 
-                              @if($job->status == 1)  <span class="badge badge-success ml-2">Active</span>
+                              @if($job->is_approved == 1)  <span class="badge badge-success ml-2">Approved</span>
                               @else 
-                              <span class="badge badge-secondary ml-2">In-active</span>
+                              <span class="badge badge-secondary ml-2">Pending</span>
                               @endif
                             </h5>
                             <div class="dropdown ml-auto">
@@ -24,15 +19,10 @@
                                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="{{route('admin.JobsEdit', encrypt($job->id))}}" class="dropdown-item">Edit</a>
-                                      <a href="{{route('admin.JobsApplied', encrypt($job->id))}}" class="dropdown-item">View Applicants</a>
-                                    @if($job->status == 1) 
-                                    <a  onclick="return confirm('Are you sure?')" href="{{route('admin.JobsDisable', encrypt($job->id))}}" class="dropdown-item">Disabled</a>
-
-                                    @else
-                                    <a  onclick="return confirm('Are you sure?')" href="{{route('admin.JobsActivate', encrypt($job->id))}}" class="dropdown-item">Activate</a>
+                                    @if($job->is_approved != 1)  
+                                    <a   href="{{route('admin.client.job_edit', encrypt($job->id))}}" class="dropdown-item">Preview</a>
                                     @endif
-                                    <a  onclick="return confirm('Are you sure?')" href="{{route('admin.JobsDelete', encrypt($job->id))}}" class="dropdown-item text-danger">Delete</a>
+                                    <a  onclick="return confirm('Are you sure?')" href="{{route('admin.clients.job_delete', encrypt($job->id))}}" class="dropdown-item text-danger">Delete Job</a>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +38,7 @@
                                 <div>{{$job->location}}</div>
                             </div>
                             <div class="col">
-                                <div class="text-muted mb-1 small">Post On</div>
+                                <div class="text-muted mb-1 small">Posted On</div>
                                 <div>{{$job->created_at->format('d-m-y h:ia')}}</div>
                             </div>
                         </div>
@@ -57,11 +47,12 @@
                     <div class="card-body">
                         <div class="small mb-2"></div>
                         <div class="avatar-group">
-                            <div>{{$job->salary_range}}</div>
+                            <div>salary Range: {{$job->salary_range}}</div>
                          
-                        </div> &nbsp; &nbsp; 
-                        <span class=""><i class="fa fa-eye"> </i> {{$job->views > 0? $job->views :'0'}}</span> 
-                        <span style="float:right"> Applicants: {{$job->applicants > 0?$job->applicants:'0'  }}</span>
+                        </div> 
+                        <hr>  
+                        <span> Company: {{$job->company }}</span> <br>
+                        <span> Email: {{$job->email }}</span>
                     </div>
                 </div>
             </div>

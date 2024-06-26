@@ -3,7 +3,7 @@
 	<!--Page Title-->
     <section class="page-title" style="background-image:url(images/background/3.jpg)">
     	<div class="auto-container">
-        	<h2>About us</h2>
+        	<h4 class="text-white">About us</h4>
             <ul class="page-breadcrumb">
             	<li><a href="{{route('index')}}">home</a></li>
                 <li>About us</li>

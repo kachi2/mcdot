@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
+use App\Models\Category;
 use App\Models\ClientJob;
-use App\Models\Industry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -16,16 +15,16 @@ class CategoryController extends Controller
 
         return view('admin.category.index', 
         [
-            'category' => Industry::latest()->get()
+            'category' => Category::latest()->get()
         ])
-        ->with('bheading', 'Manage Jobs Industry')
-        ->with('breadcrumb', 'Jobs Industry');
+        ->with('bheading', 'Manage Jobs Category')
+        ->with('breadcrumb', 'Jobs Category');
     }
 
     public function Create(){
         return view('admin.category.create')
-        ->with('bheading', 'Create Jobs Industry')
-        ->with('breadcrumb', 'Create Jobs Industry');
+        ->with('bheading', 'Create Jobs Category')
+        ->with('breadcrumb', 'Create Jobs Category');
     }
 
     public function Store(Request $request){
@@ -33,51 +32,51 @@ class CategoryController extends Controller
         $request->validate([
              'name' => 'required'
          ]);
-         $check = Industry::where('name', $request->name)->first();
+         $check = Category::where('name', $request->name)->first();
          if($check){
              Session::flash('alert', 'error');
-             Session::flash('message','Industry already exist');
+             Session::flash('message','Category already exist');
              return back()->withInput();
          }
  
-         $menu = Industry::create([
+         $menu = Category::create([
              'name' => $request->name,
          ]);
          if($menu){
              Session::flash('alert', 'success');
-             Session::flash('message','Industry added successfully');
+             Session::flash('message','Category added successfully');
              return back();
          }
      }
  
      public function Edit($id = null){
-         return view('admin.category.edit', ['category' => Industry::where('id', decrypt($id))->first()])
-         ->with('bheading', 'Industry Edit')
-         ->with('breadcrumb', 'Job Industry');
+         return view('admin.category.edit', ['category' => Category::where('id', decrypt($id))->first()])
+         ->with('bheading', 'Category Edit')
+         ->with('breadcrumb', 'Job Category');
      }
  
      public function Update(Request $request, $id){
-         $menu = Industry::findorfail(decrypt($id));
+         $menu = Category::findorfail(decrypt($id));
 
-         Industry::where('id', $menu->id)->update(['name' => $request->name]);
+         Category::where('id', $menu->id)->update(['name' => $request->name]);
          Session::flash('alert', 'success');
-         Session::flash('message',' Industry Updated successfully');
+         Session::flash('message',' Category Updated successfully');
          return back();
      }
  
   
  
      public function Delete($id){
-         $menu = Industry::findorfail(decrypt($id));
-         $jobs = ClientJob::where('industries_id', $menu->id)->first();
+         $menu = Category::findorfail(decrypt($id));
+         $jobs = ClientJob::where('category_id', $menu->id)->first();
          if($jobs){
             Session::flash('alert', 'error');
-            Session::flash('message','You cannot delete this Industry, Jobs are already assigned to it');
+            Session::flash('message','You cannot delete this Category, Jobs are already assigned to it');
             return back();
          }
          $menu->delete();
          Session::flash('alert', 'success');
-         Session::flash('message','Industry Deleted successfully');
+         Session::flash('message','Category Deleted successfully');
          return back();
      }
 }

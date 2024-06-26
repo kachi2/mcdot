@@ -99,9 +99,10 @@ body {
 	line-height:1.6em;
 	font-weight:400;
 	background:#ffffff;
-	-webkit-font-smoothing: antialiased;
-	-moz-font-smoothing: antialiased;
-	font-family: 'Open Sans', sans-serif;
+	/* -webkit-font-smoothing: antialiased; */
+	/* -moz-font-smoothing: antialiased; */
+	/* font-family: 'Open Sans', sans-serif; */
+	font-family: 'Inter',Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a{
@@ -124,7 +125,7 @@ h1,h2,h3,h4,h5,h6 {
 	background:none;
 	line-height:1.2em;
 	letter-spacing: -0.02em;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 }
 
 textarea{
@@ -219,7 +220,7 @@ ul,li{
 	letter-spacing:3px;
 	background-color: #c8a294;
 	text-transform: uppercase;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter', 'Poppins', sans-serif;
 }
 
 .btn-style-one .txt{
@@ -274,7 +275,7 @@ ul,li{
     -webkit-transition: all 600ms ease;
     -ms-transition: all 600ms ease;
     -o-transition: all 600ms ease;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter','Poppins', sans-serif;
 }
 
 .btn-style-two .txt{
@@ -351,7 +352,7 @@ ul,li{
 	letter-spacing:2px;
 	background-color: #4d273f;
 	text-transform: uppercase;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter','Poppins', sans-serif;
 }
 
 .btn-style-three .txt{
@@ -427,7 +428,7 @@ ul,li{
 	letter-spacing:2px;
 	background-color: #0e2a4e;
 	text-transform: uppercase;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter', 'Poppins', sans-serif;
 }
 
 .btn-style-four .txt{
@@ -1065,7 +1066,7 @@ img{
 .main-menu .navigation{
 	position:relative;
 	margin:0px;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter', 'Poppins', sans-serif;
 }
 
 .main-menu .navigation > li{
@@ -1517,7 +1518,7 @@ img{
 	color:#8e8e8e;
 	font-size:15px;
 	font-weight:400;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter', 'Poppins', sans-serif;
 }
 
 .header-style-five .header-upper .info-outer .info-box .text strong{
@@ -1565,7 +1566,7 @@ img{
 	padding-left:30px;
 	padding-right:48px;
 	background-color:#060d13;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter', 'Poppins', sans-serif;
 }
 
 .header-style-five .search-form-box .form-group textarea::-webkit-input-placeholder,
@@ -1687,7 +1688,7 @@ img{
 	opacity: 0;
 	visibility: hidden;
 	z-index: 999999;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter','Poppins', sans-serif;
 }
 
 .mobile-menu .nav-logo{
@@ -1888,7 +1889,7 @@ img{
 }
 
 .sec-title.style-two .text{
-	font-family: 'Lora', serif;
+	font-family:'Inter', 'Lora', serif;
 	font-size:20px;
 	font-style:italic;
 }
@@ -1962,7 +1963,7 @@ img{
 	font-size:22px;
 	font-style:italic;
 	line-height:1.4em;
-	font-family: 'Lora', serif;
+	font-family: 'Inter','Lora', serif;
 }
 
 .sec-title-two.centered:before{
@@ -2031,7 +2032,7 @@ img{
 	line-height: 1.6em;
 	color: #ffffff;
 	font-weight: 300;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Inter','Open Sans', sans-serif;
 }
 
 .main-slider h2.style-two{
@@ -2108,7 +2109,7 @@ img{
 	margin:0 auto;
 	margin-top:14px;
 	font-style:italic;
-	font-family: 'Lora', serif;
+	font-family: 'Inter','Lora', serif;
 }
 
 .services-section .title-box .text{
@@ -2267,7 +2268,7 @@ img{
 	text-transform:uppercase;
 	visibility:hidden;
 	opacity:0;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Inter','Poppins', sans-serif;
 }
 
 .service-block .inner-box .image .overlay-box .care-btn .icon{
@@ -2598,7 +2599,7 @@ img{
 	font-weight:400;
 	line-height:1.5em;
 	margin-top:25px;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 }
 
 
@@ -2791,7 +2792,7 @@ img{
 	margin-top:8px;
 	max-width:620px;
 	margin-bottom:35px;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 }
 
 /*** 
@@ -3261,7 +3262,7 @@ img{
 	margin-top:18px;
 	display:inline-block;
 	text-decoration:underline;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 	-webkit-transition:all 300ms ease;
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
@@ -3360,7 +3361,7 @@ img{
 	font-weight:700;
 	margin-top:10px;
 	display:inline-block;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 	-webkit-transition:all 300ms ease;
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
@@ -3833,7 +3834,7 @@ img{
 	color:#0e2a4e;
 	font-size:24px;
 	font-weight:700;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 }
 
 /*** 
@@ -4736,7 +4737,7 @@ img{
 	-webkit-transition:all 0.3s ease;
 	-ms-transition:all 0.3s ease;
 	-o-transition:all 0.3s ease;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 }
 
 .gallery-section-two .project-tab .product-tab-btns .p-tab-btn:after{
@@ -5220,7 +5221,7 @@ img{
 	padding:19px 30px;
 	display:block;
 	background-color:#edf1f4;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 	border:1px solid #dadfe3;
 	transition:all 0.3s ease;
 	-moz-transition:all 0.3s ease;
@@ -5447,7 +5448,7 @@ img{
 	line-height:1.5em;
 	font-weight:700;
 	text-transform:capitalize;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 }
 
 .sidebar .popular-posts .post .text a{
@@ -5573,7 +5574,7 @@ img{
 	font-weight:600;
 	margin-bottom:6px;
 	display:inline-block;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 }
 
 .news-block-two .inner-box .lower-content .upper-box .post-meta li:after{
@@ -5966,7 +5967,7 @@ img{
 	color:#181e44;
 	line-height:16px;
 	text-transform:capitalize;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 }
 
 .sidebar-page-container .comments-area .comment-box .text{
@@ -6481,7 +6482,7 @@ img{
 	-o-transition:all 500ms ease;
 	-moz-transition:all 500ms ease;
 	-webkit-transition:all 500ms ease;
-	font-family: 'Rufina', serif;
+	font-family: 'Inter','Rufina', serif;
 }
 
 .accordion-box .block .icon-outer{

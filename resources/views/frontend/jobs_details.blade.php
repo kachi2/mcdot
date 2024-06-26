@@ -3,7 +3,7 @@
 	<!--Page Title-->
     <section class="page-title" style="background-image:url(images/background/3.jpg)" style="height: 10px">
     	<div class="auto-container">
-      
+            <h4 class="text-white">Job Details</h4>
             <ul class="page-breadcrumb">
             	<li><a href="{{route('index')}}">home</a></li>
                 <li>Job Details</li>

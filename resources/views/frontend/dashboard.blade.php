@@ -43,10 +43,10 @@
 								<div class="overlay-inner">
 									<div class="content">
 										<div class="content-inner">
-											<h3><a href="">{{$tag->title}}</a></h3>
+											<h4><a href="" class="text-white text-bold">{{$tag->title}}</a></h4>
 											<div class="text">{{$tag->content}}</div>
 											<div class="btn-box">
-												<a href="" class="theme-btn care-btn">Search Jobs<span class="icon flaticon-logout"></span></a>
+												{{-- <a href="" class="theme-btn care-btn">Search Jobs<span class="icon flaticon-logout"></span></a> --}}
 											</div>
 										</div>
 									</div>

@@ -15,12 +15,14 @@ if(!function_exists('StoreImages')){
   }
 
 if(!function_exists('StorePdf')){
+
       function StorePdf($pdf){
        $ext = $pdf->getClientOriginalExtension();
        $name = $pdf->getClientOriginalName();
        $file = \pathinfo($name, PATHINFO_FILENAME);
        $fileName = $file.'.'.$ext;
         $pdf->move('files/', $fileName );
+      
     return $fileName;
   }
 
