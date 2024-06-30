@@ -31,9 +31,8 @@ class SliderController extends Controller
     public function StoreSlider(Request $request){
         $valid = Validator::make($request->all(),[
             'image' => 'required',
-            'content' => 'required',
-            'title' => 'required',
-            'link' => 'integer|required'
+            'content' => 'nullable',
+            'title' => 'nullable',
         ]);
 
 
@@ -43,13 +42,13 @@ class SliderController extends Controller
             $fileName = time().'.'.$ext;
             $image->move('images',$fileName);
     }
-    $link = route('subpages', encrypt($request->link));
+    if($request->link) $link = route('subpages', encrypt($request->link));
         $data = [
             'image' =>   $fileName,
             'content' => $request->content,
             'title' =>  $request->title,
             'status' => 1,
-            'links' => $link
+            'links' => isset($link)?$link:NULL
         ];
 
         Slider::create($data);
@@ -79,12 +78,12 @@ class SliderController extends Controller
     }else{
         $fileName = $sl->image;
     }
-    $link = route('subpages', encrypt($request->link));
+    // if($request->link) $link = route('subpages', encrypt($request->link));
         $data = [
             'image' =>  $fileName,
             'content' => $request->content,
             'title' =>  $request->title,
-            'links' => $link
+            // 'links' => isset($link)?$link:NULL
         ];
          $sl->fill($data)->save();
         Session::flash('alert', 'success');

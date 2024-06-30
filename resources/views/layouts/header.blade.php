@@ -36,7 +36,7 @@
                 <div class="auto-container clearfix" style="max-width:1430px">
                     <!--Info-->
                     <div class="logo-outer">
-                        <div class="logo"><a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="" title="" width="220px"></a></div>
+                        <div class="logo"><a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="" title="" width="180px"></a></div>
                     </div>
 
                     <!--Nav Box-->

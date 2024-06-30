@@ -14,8 +14,8 @@
 <link href="{{asset('/asset/css/style.css')}}" rel="stylesheet">
 <link href="{{asset('/asset/css/responsive.css')}}" rel="stylesheet">
 
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="{{asset('assets/fav.png')}}" type="image/x-icon">
+
 <!-- Responsive -->
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->

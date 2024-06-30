@@ -26,7 +26,7 @@ class PagesController extends Controller
 
     public function PagesCreate(){
         return view('admin.pages.create', [
-            'Pagesmenu' => Menu::where('name','LIKE','%Services%')->orWhere('name','LIKE', '%Jobs%')->get()
+            'Pagesmenu' => Menu::where('name','LIKE','%Services%')->get()
         ])
         ->with('bheading', 'Manage pages')
         ->with('breadcrumb', 'Create Page');
@@ -41,7 +41,7 @@ class PagesController extends Controller
         $request->validate([
             'title' => 'required',
             'contents' => 'required',
-            'image' => 'required',
+            'image' => 'nullable',
         ]);
 
         $data = [];
@@ -63,6 +63,7 @@ class PagesController extends Controller
         if($request->title) {
             $data['title'] = $request->title;
         }
+        $data['is_active'] = 1;
         if($request->image){
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
@@ -107,8 +108,13 @@ class PagesController extends Controller
             $image->move('images',$fileName);
             $data['metas'] = $fileName;
         }
-        Page::where('id', decrypt($id))
+        if($request->status) {
+            $data['status'] = $request->status;
+        }
+      $page =  Page::where('id', decrypt($id))
         ->update($data);
+        $subChek = SubMenu::where(['id' => $page->subMenu_id])->first();
+        $subChek->update(['is_active', $request->status]);
         Session::flash('alert', 'success');
         Session::flash('message','Page updated successfully');
         return back();

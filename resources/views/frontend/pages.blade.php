@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('contents')
-<section class="page-title" style="background-image:url(images/background/3.jpg)">
+<section class="page-title" style="background-image:url({{asset('images/'.$service->metas)}});   object-fit: cover;">
     <div class="auto-container">
         <h4 style="color:#fff">{{$service?->title??'Our Services'}}</h4>
         <ul class="page-breadcrumb">
@@ -69,7 +69,7 @@
                         <ul class="services-list">
                             <li class="active"><a href="">Services</a></li>
                             @forelse($services as $sav)
-                            <li><a href="{{route($sav->subMenu->slug, $sav->hashid)}}">{{$sav->title}}</a></li>
+                            <li><a href="{{route($sav->slug, $sav->hashid)}}">{{$sav->name}}</a></li>
                             @empty
                             @endforelse
                         </ul>

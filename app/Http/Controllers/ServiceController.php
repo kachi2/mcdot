@@ -18,12 +18,25 @@ class ServiceController extends Controller
         if(!$service){
             return back();
         }
-        $services = Page::latest()->get();
+        $services = SubMenu::where('is_active', 1)->latest()->get();
         foreach($services as $item){
-            $item->hashid = Hashids::connection('jobs')->encode($item->sub_menu_id);
+            $item->hashid = Hashids::connection('jobs')->encode($item->id);
         }
         return view('frontend.pages')
         ->with('service', $service)
         ->with('services', $services);
+    }
+
+
+    public function SearchService(Request $request)
+    {
+        if($request->search)
+        {
+            $service = Page::where('title', 'LIKE', `%$request->search%`)->first();
+            $services = SubMenu::where('is_active', 1)->latest()->get();
+            return view('frontend.pages')
+            ->with('service', $service)
+            ->with('services', $services);
+        }
     }
 }

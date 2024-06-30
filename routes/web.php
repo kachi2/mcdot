@@ -45,7 +45,7 @@ Route::controller(PagesController::class)->group(function(){
     }); 
 
 Route::controller(ServiceController::class)->group(function(){
-Route::get('/services/{service_id}', '__invoke')->name('users.services');
+Route::get('/services/{service_id}', '__invoke')->name('users.service.category');
 });
 Route::controller(ContactController::class)->group(function()
 {
