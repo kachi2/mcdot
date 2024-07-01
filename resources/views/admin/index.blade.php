@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title d-flex justify-content-between">
-                        <span>Admin Last Login</span>
+                        <span>Admin Login Activities</span>
                         
                     </h6>
                    
