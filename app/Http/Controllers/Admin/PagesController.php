@@ -111,8 +111,8 @@ class PagesController extends Controller
         if($request->status) {
             $data['status'] = $request->status;
         }
-      $page =  Page::where('id', decrypt($id))
-        ->update($data);
+      $page =  Page::where('id', decrypt($id))->first();
+        $page->update($data);
         $subChek = SubMenu::where(['id' => $page->subMenu_id])->first();
         $subChek->update(['is_active', $request->status]);
         Session::flash('alert', 'success');
