@@ -13,22 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('settings', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('logo')->nullable();
-        //     $table->string('site_name')->nullable();
-        //     $table->string('site_phone')->nullable();
-        //     $table->string('site_email')->nullable();
-        //     $table->string('site_copyright')->nullable();
-        //     $table->text('footer_menu')->nullable();
-        //     $table->string('facebook')->nullable();
-        //     $table->string('twitter')->nullable();
-        //     $table->string('linkedIn')->nullable();
-        //     $table->string('pinterest')->nullable();
-        //     $table->string('address')->nullable();
-        //     $table->text('about')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('settings', function (Blueprint $table) {
+            $table->id();
+            $table->string('logo')->nullable();
+            $table->string('site_name')->nullable();
+            $table->string('site_phone')->nullable();
+            $table->string('site_email')->nullable();
+            $table->string('site_copyright')->nullable();
+            $table->text('footer_menu')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedIn')->nullable();
+            $table->string('pinterest')->nullable();
+            $table->string('address')->nullable();
+            $table->text('about')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('settings');
+        Schema::dropIfExists('settings');
     }
 };

@@ -27,17 +27,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-    //     view()->composer('*', function($view){
-    //     $menus = Menu::where('status', 1)->get();
-    //     $menus->load('subMenu');
-    //     foreach($menus as $mm){HashIds($mm->subMenu);}
-    //     HashIds($menus);
-    //     // dd($menus);
-    //     $view->with('menus', $menus);
+        view()->composer('*', function($view){
+        $menus = Menu::where('status', 1)->get();
+        $menus->load('subMenu');
+        foreach($menus as $mm){HashIds($mm->subMenu);}
+        HashIds($menus);
+        // dd($menus);
+        $view->with('menus', $menus);
 
-    //     $view->with('settings', Setting::latest()->first());
-    //     });
-    //    view::share('unread_notify', AdminNotify::where('status', 0)->latest()->take(10)->get());
-    //    view::share('read_notify', AdminNotify::where('status', 1)->latest()->take(2)->get());
+        $view->with('settings', Setting::latest()->first());
+        });
+       view::share('unread_notify', AdminNotify::where('status', 0)->latest()->take(10)->get());
+       view::share('read_notify', AdminNotify::where('status', 1)->latest()->take(2)->get());
     }
 }

@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('menus', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('name')->nullable();
-        //     $table->integer('has_child')->nullable();
-        //     $table->integer('is_active')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('menus', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->integer('has_child')->nullable();
+            $table->integer('is_active')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('status')->default(1);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('menus');
+        Schema::dropIfExists('menus');
     }
 };

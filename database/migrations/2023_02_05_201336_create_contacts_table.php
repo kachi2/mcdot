@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('contacts', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('address')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->id();
+            $table->string('address')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
