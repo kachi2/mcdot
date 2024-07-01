@@ -21,7 +21,7 @@
                 <div class="services-detail">
                     <div class="inner-box">
                         <div class="lower-content">
-                            <h2>{{$service->title}}</h2>
+                            {{-- <h2>{{$service->title}}</h2> --}}
                             @php 
                             $arr = explode('.', $service->contents);
                             $count = count($arr)
