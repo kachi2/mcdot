@@ -17,7 +17,7 @@
                             
                         </div>
                         <div class="col-md-5">
-                            <img src="{{asset('backend/assets/images/files.svg')}}" alt="..." class="img-fluid">
+                            <img src="{{asset('assets/'.$settings->logo)}}"  alt=""  width="150px"/>
                         </div>
                     </div>
                 </div>

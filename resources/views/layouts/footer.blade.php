@@ -12,7 +12,7 @@
                         <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                             <div class="footer-widget logo-widget">
                                 <div class="logo">
-                                    <a href="index.html"><img src="{{asset('assets/'.$settings->logo)}}"  alt=""  width="150px"/></a>
+                                    <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}"  alt=""  width="150px"/></a>
                                 </div>
                                 <div class="text">{!!substr($settings->about, 0,100) !!}.</div>
                                 <ul class="social-icons">
