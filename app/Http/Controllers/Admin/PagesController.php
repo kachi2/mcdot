@@ -113,8 +113,7 @@ class PagesController extends Controller
         }
       $page =  Page::where('id', decrypt($id))->first();
         $page->update($data);
-        dd($page);
-        $subChek = SubMenu::where(['id' => $page->subMenu_id])->first();
+        $subChek = SubMenu::where(['id' => $page->sub_menu_id])->first();
         $subChek->update(['is_active', $request->status]);
         Session::flash('alert', 'success');
         Session::flash('message','Page updated successfully');
