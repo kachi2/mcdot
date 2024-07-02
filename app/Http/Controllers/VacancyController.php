@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\ClientPostedJob;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class VacancyController extends Controller
 {
@@ -20,12 +21,22 @@ class VacancyController extends Controller
 
     public function Store(Request $request)
     {
+        $valid = Validator::make($request->all(), [
+                    'deadline' => 'date_format:Y-m-d',
+                    'category_id' => 'integer'
+        ]);
+        if($valid->fails()){
+            Session::flash('message', 'Date Format is wrong, please enter Y-m-d e.g 2024-12-05');
+            Session::flash('alert', 'danger');
+            return back()->withInput($request->all());
+        }
         $capt = captcha_check($request->captcha);
-        if (!$capt) {
+        if ($capt) {
             Session::flash('message', 'Captcha does not match, try again');
             Session::flash('alert', 'danger');
             return back()->withInput($request->all());
         }
+        $date = Carbon::createFromFormat('Y-m-d',$request->deadline);
         try {
             ClientPostedJob::create([
                 'email' => $request->company_email,
@@ -36,7 +47,7 @@ class VacancyController extends Controller
                 'salary_range' => $request->salary_range,
                 'job_details' => $request->job_details,
                  'job_type' => $request->job_type, 
-                 'deadline' => Carbon::createFromFormat('d-m-y',$request->deadline),
+                 'deadline' => $date,
             ]);
 
             Session::flash('alert', 'success');
@@ -45,7 +56,7 @@ class VacancyController extends Controller
         } catch (\Exception $e) {
             Session::flash('alert', 'error');
             Session::flash('message', $e->getMessage());
-            return back();
+            return back()->withInput($request->all());
         }
     }
 }

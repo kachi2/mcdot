@@ -18,7 +18,8 @@
     <!-- Vmap -->
     <link rel="stylesheet" href="{{asset('/backend/vendors/vmap/jqvmap.min.css')}}">
     <link rel="stylesheet" href="{{asset('/backend/css/app.min.css')}}" type="text/css">
-    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script> --}}
+    <script src="https://cdn.ckeditor.com/4.24.0-lts/standard/ckeditor.js"></script>
 
 
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css" integrity="sha512-ngQ4IGzHQ3s/Hh8kMyG4FC74wzitukRMIcTOoKT3EyzFZCILOPF0twiXOQn75eDINUfKBYmzYn2AA8DkAk8veQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
@@ -182,6 +183,8 @@
 <script>
     CKEDITOR.replace( 'summernote' );
 </script>
+
+
 
 {{-- <script>
     ClassicEditor
