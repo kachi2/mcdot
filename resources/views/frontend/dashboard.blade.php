@@ -112,7 +112,7 @@
 				<div class="image-layer" style="background-image:url({{asset('asset/images/background/pattern-1.png')}}); " ></div>
 				<div class="content-box">
 				{!!$settings->about!!}
-				<a href="" class="btn btn-primary"> Begin Registration</a>
+				{{-- <a href="{{route('contact')}}" class="btn btn-primary"> Begin Registration</a> --}}
 				</div>
 				
 			</div>
