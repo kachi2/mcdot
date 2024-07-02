@@ -131,7 +131,7 @@
 			<div class="inner-container">
 				<h2>Are You A Nurse Or A Health Care Assistant Looking For Work?</h2>
 				<div class="text pb-3">Upload your details and we will contact you once you are qualified</div>
-				<a href="contact.html" class="btn btn-info p-2">Get Started now and join our team</a>
+				<a href="{{route('users.contact')}}" class="btn btn-info p-2">Get Started now and join our team</a>
 			</div>
 		</div>
 	</section>
