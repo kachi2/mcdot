@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\ClientPostedJob;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -35,7 +36,7 @@ class VacancyController extends Controller
                 'salary_range' => $request->salary_range,
                 'job_details' => $request->job_details,
                  'job_type' => $request->job_type, 
-                 'deadline' => $request->deadline,
+                 'deadline' => Carbon::createFromFormat('d-m-y',$request->deadline),
             ]);
 
             Session::flash('alert', 'success');

@@ -80,8 +80,8 @@
                                         <div class="form-group">
                                             <select name="job_type">
                                                 <option> Select Job Type</option>
-                                                <option value="full_time"> Full-Time</option>
-                                                <option value="part_time"> Part-Time</option>
+                                                <option value="Full-Time"> Full-Time</option>
+                                                <option value="Part-Time"> Part-Time</option>
                                             </select>
                                         </div>
                                     </div>
