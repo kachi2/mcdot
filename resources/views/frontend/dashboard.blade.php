@@ -257,8 +257,8 @@
 		
 				
 				<!-- News Block -->
+			<div class="row">
 				@forelse($blogs as $blog)
-				<div class="row clearfix">
 				<div class="news-block col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box">
 						<div class="image">
@@ -272,13 +272,13 @@
 						</div>
 					</div>
 				</div>
-			</div>
 				@empty 
 				@endforelse
+			</div>
 				
 				<!-- News Block -->
 			
-		
+			</div>
 			
 		</div>
 	</section>
