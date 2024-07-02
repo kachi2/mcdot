@@ -26,7 +26,7 @@ class CVController extends Controller
           return back()->withInput($request->all());
       }
       $check = ApplicantCV::where(['email' => $request->email])->first();
-      if(!$check){
+      if($check){
        Session::flash('message', 'You have previously submitted your CV');
        Session::flash('alert', 'danger');
        return back()->withInput();
