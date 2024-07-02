@@ -82,11 +82,14 @@
 				<div class="service-block-two">
 					<div class="inner-box">
 						<div class="image">
-							<a href="elderly-service.html"><img src="{{asset('images/'.$service->metas)}}" alt="" /></a>
+							<a href="{{route('users.service.category',$service->hashid)}}"><img src="{{asset('images/'.$service->image)}}" alt="" /></a>
 						</div>
+						
 						<div class="lower-content">
-							<h3><a href="elderly-service.html">{{$service->title}}</a></h3>
-							<div class="text">{!! substr($service->contents, 0, 150) !!}... read More</div>
+							<h5 style="color:#000; border-bottom: 2px dashed #000; font-weight:500"  class="pb-1 "> {{$service->name}}</h5>
+							<a   style="color:rgba(0, 0, 0, 0.622)" href="{{route('users.service.category',$service->hashid)}}">{{$service->title}}  <br> 
+								<span class="  btn-outline-info"> ASK FOR SERVICE  <i class="fa fa-arrow-alt-circle-right"> </i></span> </a>
+						
 						</div>
 					</div>
 				</div>
@@ -185,7 +188,8 @@
 
 	
 	<!-- Testimonial Section -->
-	{{-- <section class="testimonial-section">
+	@if(count($testimonials) > 0)
+	<section class="testimonial-section">
 		<div class="auto-container">
 			<!-- Sec Title Two -->
 			<div class="sec-title-two light centered">
@@ -195,17 +199,18 @@
 			<div class="testimonial-carousel owl-carousel owl-theme">
 				
 				<!-- Testimonial Block -->
+				@foreach ($testimonies as $testimony )
 				<div class="testimonial-block">
 					<div class="inner-box">
 						<div class="content-box">
-							<div class="text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, psam volu ptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolorqui dolorem ipsum quia dolo.</div>
+							<div class="text">{{$testimony->content}}</div>
 						</div>
 						<div class="lower-box">
 							<div class="box-inner">
 								<div class="image">
 									<img src="images/resource/author-1.jpg" alt="" />
 								</div>
-								<h3>Mark John - <span>CEO Falcon</span></h3>
+								<h3> <span>{{$testimony->name}}</span></h3>
 								<div class="rating">
 									<span class="fa fa-star"></span>
 									<span class="fa fa-star"></span>
@@ -216,87 +221,22 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>	
+				@endforeach
 				
-				<!-- Testimonial Block -->
-				<div class="testimonial-block">
-					<div class="inner-box">
-						<div class="content-box">
-							<div class="text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, psam volu ptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolorqui dolorem ipsum quia dolo.</div>
-						</div>
-						<div class="lower-box">
-							<div class="box-inner">
-								<div class="image">
-									<img src="images/resource/author-1.jpg" alt="" />
-								</div>
-								<h3>Mark John - <span>CEO Falcon</span></h3>
-								<div class="rating">
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 				
-				<!-- Testimonial Block -->
-				<div class="testimonial-block">
-					<div class="inner-box">
-						<div class="content-box">
-							<div class="text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, psam volu ptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolorqui dolorem ipsum quia dolo.</div>
-						</div>
-						<div class="lower-box">
-							<div class="box-inner">
-								<div class="image">
-									<img src="images/resource/author-1.jpg" alt="" />
-								</div>
-								<h3>Mark John - <span>CEO Falcon</span></h3>
-								<div class="rating">
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Testimonial Block -->
-				<div class="testimonial-block">
-					<div class="inner-box">
-						<div class="content-box">
-							<div class="text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, psam volu ptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolorqui dolorem ipsum quia dolo.</div>
-						</div>
-						<div class="lower-box">
-							<div class="box-inner">
-								<div class="image">
-									<img src="images/resource/author-1.jpg" alt="" />
-								</div>
-								<h3>Mark John - <span>CEO Falcon</span></h3>
-								<div class="rating">
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			
+			
 			
 			</div>
 			
 		</div>
-	</section> --}}
+	</section>
+	@endif
 
 	
 	<!-- News Section -->
+	@if(count($blogs) > 0)
 	<section class="news-section">
 		<div class="auto-container">
 			
@@ -340,6 +280,7 @@
 			
 		</div>
 	</section>
+	@endif
 	<!-- End News Section -->
 	
 	
