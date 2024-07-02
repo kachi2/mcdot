@@ -256,11 +256,38 @@
 			
 			<div class="row clearfix">
 				
-			
-				
+				<!-- News Block -->
+				<div class="news-block col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box">
+						<div class="image">
+							<a href="company-news.html"><img src="images/resource/news-1.jpg" alt="" /></a>
+						</div>
+						<div class="lower-content">
+							<div class="post-date">July 12, 2018</div>
+							<h3><a href="company-news.html">Top 5 Tips for Caregivers During the Holidays </a></h3>
+							<div class="text">Lorem ipsum dolor sit amet, cons ectetur elit. Vestibulum nec odios Suspe ndisse cursus mal suada faci lisis.</div>
+							<a href="company-news.html" class="read-more">Continue Reading ...</a>
+						</div>
+					</div>
+				</div>
 				
 				<!-- News Block -->
-				@forelse($blogs as $blog)
+				<div class="news-block col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box">
+						<div class="image">
+							<a href="company-news.html"><img src="images/resource/news-2.jpg" alt="" /></a>
+						</div>
+						<div class="lower-content">
+							<div class="post-date">July 12, 2018</div>
+							<h3><a href="company-news.html">Caregiving Checklist for a New <br> Year</a></h3>
+							<div class="text">Lorem ipsum dolor sit amet, cons ectetur elit. Vestibulum nec odios Suspe ndisse cursus mal suada faci lisis.</div>
+							<a href="company-news.html" class="read-more">Continue Reading ...</a>
+						</div>
+					</div>
+				</div>
+				
+				<!-- News Block -->
+				{{-- @forelse($blogs as $blog)
 				<div class="news-block col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box">
 						<div class="image">
@@ -275,7 +302,7 @@
 					</div>
 				</div>
 				@empty 
-				@endforelse
+				@endforelse --}}
 				
 			</div>
 			
