@@ -51,18 +51,18 @@ class JobsController extends Controller
         $data['status'] = 1;
         $data['category_id'] = $request->category_id;
 
-        $checkIndustries = Category::where('name', 'LIKE', "%$request->category_id%")->first();
-        if($checkIndustries){
-            $data['category_id'] = $checkIndustries->id;
-        }else{
-            $crt = Category::create([
-                'name' =>  $request->category_id
-            ]);
-            $checkIndustries = Category::where('name', '%like', $request->category_id)->first();
-            if($crt){
-            $data['category_id'] = $checkIndustries->id;
-            }
-        }
+        // $checkIndustries = Category::where('name', 'LIKE', "%$request->category_id%")->first();
+        // if($checkIndustries){
+        //     $data['category_id'] = $checkIndustries->id;
+        // }else{
+        //     $crt = Category::create([
+        //         'name' =>  $request->category_id
+        //     ]);
+        //     $checkIndustries = Category::where('name', '%like', $request->category_id)->first();
+        //     if($crt){
+        //     $data['category_id'] = $checkIndustries->id;
+        //     }
+        // }
 
         // $data = [
         //     'title' => $request->title,
