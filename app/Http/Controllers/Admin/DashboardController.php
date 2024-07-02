@@ -17,7 +17,7 @@ class DashboardController extends Controller
 
     public function Index(){
         return view('admin.index', [
-            'applicants' => Applicant::latest()->get(),
+            'applicants' => AppliedJob::latest()->get(),
             'blogs' =>  Blog::get(),
             'jobs' => ClientJob::get(),
             'logins' => AdminActivity::take(5)->latest()->get()
