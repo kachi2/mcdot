@@ -260,7 +260,7 @@
 				<div class="news-block col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box">
 						<div class="image">
-							<a href="company-news.html"><img src="images/resource/news-1.jpg" alt="" /></a>
+							<a href="company-news.html"><img src="{{asset('asset/images/resource/news-1.jpg')}}" alt="" /></a>
 						</div>
 						<div class="lower-content">
 							<div class="post-date">July 12, 2018</div>
