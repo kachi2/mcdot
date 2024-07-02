@@ -248,7 +248,7 @@
 						{{-- <div class="text">CareGiver Community Reviews</div> --}}
 					</div>
 					<div class="pull-right">
-						<a href="blog.html" class="view-blogs">View all blogs</a>
+						{{-- <a href="blog.html" class="view-blogs">View all blogs</a> --}}
 					</div>
 				</div>
 			</div>
