@@ -237,27 +237,26 @@
 	
 	<!-- News Section -->
 	@if(count($blogs) > 0)
-	<section class="news-section">
+	<section class="news-section style-two">
 		<div class="auto-container">
 			
 			<!-- Sec Title -->
 			<div class="sec-title style-two">
 				<div class="clearfix">
 					<div class="pull-left">
-						<h2>Latest Blogs</h2>
+						<h2>Latest Articles & Blogs</h2>
 						{{-- <div class="text">CareGiver Community Reviews</div> --}}
 					</div>
-					<div class="pull-right">
-						{{-- <a href="blog.html" class="view-blogs">View all blogs</a> --}}
-					</div>
+					{{-- <div class="pull-right">
+						<a href="company-news.html" class="view-blogs">View all blogs</a>
+					</div> --}}
 				</div>
 			</div>
 			
 			
-		
+			<div class="row clearfix">
 				
 				<!-- News Block -->
-			<div class="row">
 				@forelse($blogs as $blog)
 				<div class="news-block col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box">
@@ -274,10 +273,9 @@
 				</div>
 				@empty 
 				@endforelse
-			</div>
 				
-				<!-- News Block -->
 			
+				
 			</div>
 			
 		</div>
