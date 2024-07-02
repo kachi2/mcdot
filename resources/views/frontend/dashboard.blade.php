@@ -268,9 +268,9 @@
 							<a href="{{route('users.blogs.details', $blog->hashid)}}"><img src="{{asset('images/'.$blog->image)}}" alt="" /></a>
 						</div>
 						<div class="lower-content">
-							<div class="post-date">July 12, 2024</div>
-							<h3><a href="{{route('users.blogs.details', $blog->hashid)}}">{{$blog->title}} </a></h3>
-							<div class="text">{!!substr($blog->contents, 0,100)!!}</div>
+							{{-- <div class="post-date">July 12, 2024</div> --}}
+							<h5><a href="{{route('users.blogs.details', $blog->hashid)}}">{{$blog->title}} </a></h5>
+							<div class="">{!!substr($blog->contents, 0,100)!!}</div>
 							<a href="{{route('users.blogs.details', $blog->hashid)}}" class="read-more">Continue Reading ...</a>
 						</div>
 					</div>
