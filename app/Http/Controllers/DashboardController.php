@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\ClientJob;
 use App\Models\ClientLogo;
 use App\Models\Page;
@@ -17,7 +18,7 @@ class DashboardController extends Controller
     //
 
     public function Index(){
-        $jobs =  ClientJob::latest()->get();
+        $jobs =  ClientJob::latest()->take(6)->get();
         $blogs = Blog::latest()->take(3)->get();
         $menus = SubMenu::where('is_active', 1)->latest()->get();
         HashIds($jobs);
@@ -29,7 +30,8 @@ class DashboardController extends Controller
             'services' => $menus,
             'testimonials' => Testimonial::latest()->get(),
             'tags' => Tagline::latest()->get(),
-            'jobs' => $jobs
+            'jobs' => $jobs,
+            'categories' => Category::latest()->get()
           
         ]);
     }

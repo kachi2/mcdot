@@ -39,8 +39,16 @@ class CategoryController extends Controller
              return back()->withInput();
          }
  
+         if($request->image){
+            $image = $request->file('image');
+            $ext = $image->getClientOriginalExtension();
+            $fileName = time().'.'.$ext;
+            $image->move('assets/',$fileName);
+        }
          $menu = Category::create([
              'name' => $request->name,
+             'image' => $$fileName??null,
+             'title' => $request->title
          ]);
          if($menu){
              Session::flash('alert', 'success');
@@ -57,8 +65,17 @@ class CategoryController extends Controller
  
      public function Update(Request $request, $id){
          $menu = Category::findorfail(decrypt($id));
-
-         Category::where('id', $menu->id)->update(['name' => $request->name]);
+         if($request->image){
+            $image = $request->file('image');
+            $ext = $image->getClientOriginalExtension();
+            $fileName = time().'.'.$ext;
+            $image->move('assets/',$fileName);
+        }
+         Category::where('id', $menu->id)->update([
+            'name' => $request->name,
+            'image' => $fileName??null,
+            'title' => $request->title
+        ]);
          Session::flash('alert', 'success');
          Session::flash('message',' Category Updated successfully');
          return back();

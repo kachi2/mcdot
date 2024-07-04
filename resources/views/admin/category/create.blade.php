@@ -16,13 +16,34 @@
                                      <div class="col-md-12">
                                        <div class="form-group">
                                       <input type="text" name="name" placeholder="Enter Job Id" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror" >
-                                            <small id="emailHelp" class="form-text text-muted">Enter Job Id
+                                            <small id="emailHelp" class="form-text text-muted">Enter Job Category
                                             </small>
                                             @error('name')
                                             <span class="invalid-feedback"> <small> * </small> </span>
                                             @enderror
                                         </div>
-                                         </div>        
+                                         </div>  
+                                         <div class="col-md-12">
+                                          <div class="form-group">
+                                         <input type="text" name="title" placeholder="Enter Job Id" value="{{old('title')}}" class="form-control @error('title') is-invalid @enderror" >
+                                               <small id="emailHelp" class="form-text text-muted">Category Description
+                                               </small>
+                                               @error('title')
+                                               <span class="invalid-feedback"> <small> * </small> </span>
+                                               @enderror
+                                           </div>
+                                            </div>    
+                                         <div class="col-md-12 pt-4">
+                                          <div class="custom-file">
+                                        <input type="file" name="image" class="custom-file-input  @error('image') is-invalid @enderror">
+                                            <label class="custom-file-label" for="customFile">Choose Image</label>
+                                        </div>
+                                        <small id="emailHelp" class="form-text text-muted"> Choose Image
+                                        </small>
+                                          @error('image')
+                                        <span class="invalid-feedback"> <small> *</small> </span>
+                                        @enderror
+                                     </div>   
                             </div> 
                         </div>    
                     </div>
@@ -33,7 +54,7 @@
                           </div>
                           <div class="col-md-4">
                         <div class="p-5">
-                             <button type="submit" class=" btn btn-primary w-10 p-3 ">Add Job Id</button>
+                             <button type="submit" class=" btn btn-primary w-10 p-3 ">Add Job Category</button>
                            </div>
                            </div>
                            </div>

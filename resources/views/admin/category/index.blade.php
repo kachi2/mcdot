@@ -28,6 +28,7 @@
                                            <thead>
                                             <tr>
                                                 <th>Name</th>
+                                                <th>Image</th>
                                                  <th>Created At</th>
                                                 <th></th>
                                             </tr>
@@ -41,6 +42,9 @@
                                                 <td>
                                                     <a href="#">{{$sp->name}}</a>
                                                 </td>   
+                                                <td>
+                                                    <a href="#">  <img src="{{asset('assets/'.$sp->image)}}" width="50px"></a>
+                                                </td> 
                                                   <td>
                                                     <a href="#">{{$sp->created_at}}</a>
                                                 </td>
@@ -51,8 +55,8 @@
                                                             <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                                                         </a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a href="{{route('admin.categoryEdit', encrypt($sp->id))}}" class="dropdown-item">Edit Job Id</a>
-                                                            <a href="{{route('admin.categoryDelete', encrypt($sp->id))}}" class="dropdown-item">Delete Job Id</a>
+                                                            <a href="{{route('admin.categoryEdit', encrypt($sp->id))}}" class="dropdown-item">Edit Job Category</a>
+                                                            <a href="{{route('admin.categoryDelete', encrypt($sp->id))}}" class="dropdown-item">Delete Job  Categor</a>
                                                             </div>
                                                     </div>
                                                 </td>

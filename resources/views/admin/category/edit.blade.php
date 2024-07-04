@@ -10,7 +10,7 @@
               <div class="card">
                         <div class="card-body">
                           <span style="float:right">  <a href="{{route('admin.category.index')}}"> View All Job Id</a></span>
-                            <h6 class="card-title">Add New Job Id</h6>
+                            <h6 class="card-title">Add New Job Category</h6>
                           
                             <div class="row">
                                      <div class="col-md-12">
@@ -22,7 +22,32 @@
                                             <span class="invalid-feedback"> <small> * </small> </span>
                                             @enderror
                                         </div>
-                                         </div>        
+                                     </div>
+                                        <div class="col-md-12">
+                                          <div class="form-group">
+                                         <textarea type="text" name="title" placeholder="Enter Job Id" class="form-control @error('title') is-invalid @enderror" >
+                                          {{$category->title}}
+                                        </textarea>
+                                               <small id="emailHelp" class="form-text text-muted">Category Description
+                                               </small>
+                                               @error('title')
+                                               <span class="invalid-feedback"> <small> * </small> </span>
+                                               @enderror
+                                           </div>
+                                            </div>    
+                                         <div class="col-md-12 pt-4">
+                                          <img src="{{asset('assets/'.$category->image)}}" width="50px">
+                                          <div class="custom-file">
+                                          
+                                            <input type="file" name="image" class="custom-file-input  @error('image') is-invalid @enderror">
+                                            <label class="custom-file-label" for="customFile">Choose Image</label>
+                                        </div>
+                                        <small id="emailHelp" class="form-text text-muted"> Choose Image
+                                        </small>
+                                          @error('image')
+                                        <span class="invalid-feedback"> <small> *</small> </span>
+                                        @enderror
+                                     </div>         
                             </div> 
                         </div>    
                     </div>
@@ -33,7 +58,7 @@
                           </div>
                           <div class="col-md-4">
                         <div class="p-5">
-                             <button type="submit" class=" btn btn-primary w-10 p-3 ">Update Job Id</button>
+                             <button type="submit" class=" btn btn-primary w-10 p-3 ">Update Job Category</button>
                            </div>
                            </div>
                            </div>
