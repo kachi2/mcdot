@@ -17,6 +17,7 @@
             @if ($data['phone']) <p>{{ __("Phone: :phone", ['phone' => $data['phone']]) }}</p> @endif
 
             @if ($data['message']) <p style="margin: 0 0 -10px"><strong>{{ __("Message:") }}</strong></p> {!! $data['message'] !!} @endif
+            @if ($data['service']) <p style="margin: 0 0 -10px"><strong>{{ __("service:") }}</strong></p> {!! $data['service'] !!} @endif
 
             <p style="margin: 32px 0 0; font-size: 13px; font-style: italic; line-height: 22px; color:#9ea8bb;">
                 ---<br>

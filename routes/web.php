@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdhocController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CVController;
@@ -9,8 +10,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PermanentController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\TemporaryController;
 use App\Http\Controllers\VacancyController;
 
 /*
@@ -70,10 +73,19 @@ Route::get('/vacancies', 'Index')->name('client.vacancy');
 Route::post('/vacancy/store', 'Store')->name('clients.job_store');
 });
 
-Route::controller(StaffController::class)->group(function() {
+Route::controller(PermanentController::class)->group(function() {
  Route::get('staff/permanent', 'PermanentRecruiting')->name('users.permanent.staff');
- Route::get('staff/temporary', 'TemporaryRecruiting')->name('users.temporary.staff');
- Route::get('staff/adhoc', 'AdhocRecruiting')->name('users.adhoc.staff');
+ Route::post('staff/permanent/store', 'Store')->name('users.permanent.staff.store');
+});
+
+Route::controller(TemporaryController::class)->group(function() {
+    Route::get('staff/temporary', 'TemporaryRecruiting')->name('users.temporary.staff');
+    Route::post('staff/temporary/store', 'Store')->name('users.temporary.staff.store');
+});
+
+Route::controller(AdhocController::class)->group(function() {
+    Route::get('staff/adhoc', 'AdhocRecruiting')->name('users.adhoc.staff');
+    Route::post('staff/adhoc/store', 'Store')->name('users.adhoc.staff.store');
 });
 
 
