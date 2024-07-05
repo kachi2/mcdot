@@ -10,6 +10,7 @@ use App\Http\Controllers\JobsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\VacancyController;
 
 /*
@@ -42,6 +43,7 @@ Route::controller(PagesController::class)->group(function(){
         Route::get('jobs/category/{category_id?}', 'Category')->name('users.jobs.category');
         Route::get('jobs/details/{job_id}', 'Details')->name('job-details');
         Route::post('job/apply/{job_id}', 'ApplyJob')->name('apply-job');
+        Route::get('jobs/search', 'SearchJobs')->name('search.jobs');
     }); 
 
 Route::controller(ServiceController::class)->group(function(){
@@ -68,6 +70,11 @@ Route::get('/vacancies', 'Index')->name('client.vacancy');
 Route::post('/vacancy/store', 'Store')->name('clients.job_store');
 });
 
+Route::controller(StaffController::class)->group(function() {
+ Route::get('staff/permanent', 'PermanentRecruiting')->name('users.permanent.staff');
+ Route::get('staff/temporary', 'TemporaryRecruiting')->name('users.temporary.staff');
+ Route::get('staff/adhoc', 'AdhocRecruiting')->name('users.adhoc.staff');
+});
 
 
 require __DIR__.'/auth.php';

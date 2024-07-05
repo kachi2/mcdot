@@ -1,10 +1,10 @@
 <header class="header header-layout2">
     <nav class="navbar navbar-expand-lg sticky-navbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{route('index')}}">
           {{-- <img src="" class="logo-light" alt="logo"> --}}
-          {{-- <img src="assets/images/logo/logo-dark.png" class="logo-dark" alt="logo"> --}}
-          <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="{{$settings->site_name}}" class="logo-dark" width="120px"></a>
+          <img src="{{asset('assets/'.$settings->logo)}}" class="logo-dark" width="120px" alt="logo">
+          {{-- <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="{{$settings->site_name}}" class="logo-dark" width="120px"></a> --}}
         </a>
         <button class="navbar-toggler" type="button">
           <span class="menu-lines"><span></span></span>

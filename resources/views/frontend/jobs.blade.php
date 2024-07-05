@@ -1,91 +1,133 @@
 @extends('layouts.app')
 @section('contents')
+<section class="page-title page-title-layout1 bg-overlay text-center pb-0">
+    <div class="bg-img"><img src="{{asset('/assets/images/page-titles/3.jpg')}}" alt="background"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8 offset-xl-2">
+            <form method="get" action="{{route('search.jobs')}}">
+            @csrf
+          <p class="pagetitle__desc mb-30">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">   
+             <input type="text" name="search" placeholder="Enter search terms" class="form-control">  
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3"> 
+                    <select name="type" id="">
+                    <option> Select Job Type</option>
+                    @forelse($types as $type)
+                  <option value="{{$type->name}}"><span><a href="{{route('users.jobs.category', $type->hashid)}}"> {{$type->name}}</a> </option> 
+                    @empty 
+                    @endforelse 
+                </select>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">  
+                <button class="btn btn-primary btn__rounded"> Search Jobs</button>
+                </div>  
+             </div>
+          </p>
+        </form>
+          {{-- <a href="#content" class="scroll-down"><i class="fas fa-long-arrow-alt-down"></i></a> --}}
+        </div><!-- /.col-xl-8 -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </section><!-- /.page-title -->
 
-<section class="page-title" style="background-image:url(images/background/3.jpg)">
-    <div class="auto-container">
-        <h4 style="color:#fff">{{$jobs['0']?->category?->name??'Jobs'}}</h4>
-        <ul class="page-breadcrumb">
-            <li><a href="index.html">home</a></li>
-            <li>Jobs</li>
-        </ul>
-    </div>
-</section>
-<!--End Page Title-->
-
-<!--Sidebar Page Container-->
-<div class="sidebar-page-container">
-    <div class="auto-container">
-        <div class="row clearfix">
-            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+  <section id="content" class=" pb-80">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-4">
+            <aside class="sidebar has-marign-left sticky-top">
+              <div class="widget widget-services">
+                <h5 class="widget__title">Job Categories</h5>
+                <div class="widget-content">
+                  <ul class="list-unstyled mb-0">
+                    @forelse($category as $categories)
+                    <li><a href="{{route('users.jobs.category', $categories->hashid)}}"><span>{{$categories->name}}</span><i class="icon-arrow-right"></i></a></li>
+                   
+                    @empty 
+                    @endforelse
+                  </ul>
+                </div><!-- /.widget-content -->
+              </div><!-- /.widget-services -->
+              <div class="widget widget-schedule">
+                <div class="widget-content">
+                  <h4 class="widget__title"> Job Type</h4>
+                  <ul class="time__list list-unstyled mb-0">
+                    @forelse($types as $type)
+                    <li><span><a href="{{route('users.jobs.category', $categories->hashid)}}"> {{$type->name}}</a> </span><i class="icon-arrow-right"></i></li>
+                    @empty 
+                    @endforelse
+                  </ul>
+                </div><!-- /.widget-content -->
+              </div><!-- /.widget-schedule -->
+              <div class="widget widget-help bg-overlay bg-overlay-secondary-gradient">
+                <div class="bg-img"><img src="assets/images/banners/5.jpg" alt="background"></div>
+                <div class="widget-content">
+                
+                  <h4 class="widget__title"> No CV? No problem  </h4>
+                  <p class="widget__desc">
+                    You can apply for any of our jobs with or without a CV. 
+                  </p>
+                  <a href="" class="phone__number">
+                    Register with Us
+                  </a>
+                </div><!-- /.widget-content -->
+              </div><!-- /.widget-help -->
+             
+            </aside><!-- /.sidebar -->
+          </div><!-- /.col-lg-4 -->
+        <div class="col-sm-12 col-md-12 col-lg-8">
             @forelse ($jobs as $job)
-            <div class="col-sm-6 col-lg-12 pt-5">
-               <div class="featured-card card h-100 hover-tiltY shadow-sm">
-                   <div class="card-header border-0 bg-transparent pt-3" style="display: flex;justify-content: space-between;">
-                       <span><img src="{{asset('assets/'.$settings->logo)}}" width="100px"> </span>
-       
-                       <span style="float:right; top:2px;">
-                         <span class="badge bg-info" style="color:#fff"> {{$job->job_type}}  </span> 
-                       </span>
-                   </div>
-                   <div class="card-body py-0 py-lg-2">
-                       <h4 style="font-family:Arial, Sans-serif; font-weight:bold;">{!! $job->title !!}</h4> 
-                       <p>Category: <span style="color: brown">  {{$job->category->name}}</span> </p> 
-                         {{-- <p style="color:#0099ff">{{$jo->company}}</p> --}}
-                       <span  class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->location}}</span>  
-                        <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->job_type}}</span>  
-                         <span class="p-1" style="border-radius: 4px; background:#9ab6c957; color:#5f5a5a"> {{$job->salary_range}} </span> <br>
-                        <p class="pt-2">{!! substr($job->job_details,0,200) !!}...</p>
-                   </div>
-                   <div class="card-footer bg-transparent border-0 pb-2 pb-lg-4">
-                       <span class="">
-                         <a href="{{route('job-details', $job->hashid)}}" class="badge w-25 bg-info p-3" style="color:#fff">View Job Details</a> 
-                       </span>
-         
-                   </div>
-               </div>
-           </div> 
-           @empty
-           @endforelse
-            </div>
-            
-            <!--Sidebar Side-->
-            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
-                <aside class="sidebar padding-left">
-                    <div class="sidebar-widget search-box">
-                        <form method="post" action="">
-                            <div class="form-group">
-                                <input type="search" name="search-field" value="" placeholder="Search for Jobs" required>
-                                <button type="submit"><span class="icon fa fa-search"></span></button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Sidebar Widget / List Widget-->
-                    <div class="sidebar-widget list-widget">
-                        <!-- Services List -->
-                        <ul class="services-list">
-                            <li class="active"><a href="">Job Category</a></li>
-                            @forelse($category as $categories)
-                            <li><a href="{{route('users.jobs.category', $categories->hashid)}}">{{$categories->name}}</a></li>
-                            @empty 
-                            @endforelse
-                          
-                        </ul>
-                    </div>
-                    
-                    <!-- Sidebar Widget / Contact Widget-->
-                    <div class="sidebar-widget contact-widget">
-                        <div class="widget-content" style="background-image: url(images/resource/contact-2.jpg);">
-                            <h3>Find Care Today</h3>
-                            <a href="contact.html" class="theme-btn contact-btn">contact us</a>
-                        </div>
-                    </div>
-                    
-                </aside>
-            </div>
-            
-        </div>
-    </div>
-</div>
-        
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="service-item">
+                <div class="service__icon pl-5" style="margin-bottom: 0px">
+                    <span><img src="{{asset('assets/'.$settings->logo)}}" width="50px"> </span>
+                    <span style="float:right; font-size:20px " class="pr-5 pt-4">
+                        <span class="badge bg-info" style="color:#fff"> {{$job->job_type}}  </span> 
+                      </span>
+                </div><!-- /.service__icon -->
+                <div class="service__contnt pl-5 pb-5 pr-2" style="padding-left:20px">
+                  <h4 class="service__title">{!! $job->title !!}</h4>
+                  {{-- <p class="service__desc">
+                    <p>Category: <span style="color: brown">  {{$job->category->name}}</span> </p>
+                    Job Location: <span  class="p-1" > {{$job->location_id}}</span>  <br>
+                 Job Type: <span class="p-1" > {{$job->job_type}}</span><br>  
+                  Salary:<span class="p-1"> {{$job->salary_range}} </span> <br>
+                
+                  </p> --}}
+                  <ul class="list-items list-items-layout1 list-unstyled">
+                    <li>Location: {{$job->location_id}}</li>
+                    <li>Job Type: {{$job->job_type}} </li>
+                    <li>Salary: {{$job->salary_range}}</li>
+                  </ul>
+                  <p class="">{!! substr($job->job_details,0,200) !!}...</p>
+                  <a href="{{route('job-details', $job->hashid)}}" class="btn btn__secondary btn__outlined btn__rounded">
+                    <span>Read More</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div><!-- /.service__content -->
+              </div><!-- /.service-item -->
+            </div><!-- /.col-lg-4 -->
+        @empty
+        <div class="col-sm-12 col-md-6 col-lg-12">
+            <div class="service-item">
+                0 Jobs Found
+               
+              <div class="service__contnt pl-5 pb-5 pr-2" style="padding-left:20px">
+                <p class="service__title">No Record Sorry!  Does not match record with your keyword</p>
+
+               
+             
+              </div><!-- /.service__content -->
+            </div><!-- /.service-item -->
+          </div><!-- /.col-lg-4 -->
+
+        @endforelse
+
+        </div><!-- /.col-lg-8 -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+  </section>
 
 @endsection

@@ -13,7 +13,7 @@ href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&am
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
 <link rel="shortcut icon" href="{{asset('assets/fav.png')}}" type="image/x-icon">
-
+@yield('styles')
 </head>
 <body>
     <div class="wrapper">

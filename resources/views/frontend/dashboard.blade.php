@@ -2,6 +2,7 @@
 @extends('layouts.app')
 @section('contents')
 
+
 @include('frontend.minimal.slider')
 
 <section class="features-layout4 py-0">
@@ -196,7 +197,44 @@ Features Layout 1
 	  <span class="btn-sm btn-{{$array[$cc->id]}} btn__rounded p-2 pr-3 pl-3 m-1 "> <a href="{{route('users.jobs.category', $cc->hashid)}}" style="color:#fff"> {{$cc->name}}</a></span>  
 	  @endforeach
 </div>
-	<div class="row">
+<div class="row">
+	<!-- service item #1 -->
+	@forelse ($jobs as $job)
+	<div class="col-sm-12 col-md-6 col-lg-4">
+	  <div class="service-item">
+		<div class="service__icon pl-5" style="margin-bottom: 0px">
+			<span><img src="{{asset('assets/'.$settings->logo)}}" width="50px"> </span>
+			<span style="float:right; font-size:20px " class="pr-5 pt-4">
+				<span class="badge bg-info" style="color:#fff"> {{$job->job_type}}  </span> 
+			  </span>
+		</div><!-- /.service__icon -->
+		<div class="service__contnt pl-5 pb-5 pr-2" style="padding-left:20px">
+		  <h4 class="service__title">{!! $job->title !!}</h4>
+		  {{-- <p class="service__desc">
+			<p>Category: <span style="color: brown">  {{$job->category->name}}</span> </p>
+			Job Location: <span  class="p-1" > {{$job->location_id}}</span>  <br>
+		 Job Type: <span class="p-1" > {{$job->job_type}}</span><br>  
+		  Salary:<span class="p-1"> {{$job->salary_range}} </span> <br>
+		
+		  </p> --}}
+		  <ul class="list-items list-items-layout1 list-unstyled">
+			<li>Location: {{$job->location_id}}</li>
+			<li>Job Type: {{$job->job_type}} </li>
+			<li>Salary: {{$job->salary_range}}</li>
+		  </ul>
+		  <p class="">{!! substr($job->job_details,0,200) !!}...</p>
+		  <a href="{{route('job-details', $job->hashid)}}" class="btn btn__secondary btn__outlined btn__rounded">
+			<span>Read More</span>
+			<i class="icon-arrow-right"></i>
+		  </a>
+		</div><!-- /.service__content -->
+	  </div><!-- /.service-item -->
+	</div><!-- /.col-lg-4 -->
+@empty
+@endforelse
+
+  </div>
+	{{-- <div class="row">
 		<div class="fancybox-layout1">
 			<div class="row">
 
@@ -228,7 +266,7 @@ Features Layout 1
 			  @endforeach
 			</div><!-- /.row -->
 		  </div>
-	</div><!-- /.row -->
+	</div><!-- /.row --> --}}
   </div><!-- /.container -->
 </section><!-- /.Team -->
 
