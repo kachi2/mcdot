@@ -10,7 +10,7 @@
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
               <div class="slide__content">
                 <span class="slide__subtitle">The Best Medical And General Practice Care! </span>
-                <h2 class="slide__title">{{$slider->title}} </h2>
+                <h class="slide__desc" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size:30px">{{$slider->title}} </h4>
                 <p class="slide__desc">{{$slider->content}}</p>
                 <div class="d-flex flex-wrap align-items-center">
                   <a href="services.html" class="btn btn__secondary btn__rounded mr-30">
