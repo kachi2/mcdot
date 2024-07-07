@@ -28,7 +28,7 @@ class BlogController extends Controller
         HashIds($popular);
         return view('frontend.blog_details',[
             'blog' => $blog,
-            'popular' => $popular,
+            'blogs' => $popular,
             
         ]);
     }
