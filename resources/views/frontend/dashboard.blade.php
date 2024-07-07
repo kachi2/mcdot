@@ -160,7 +160,7 @@ Features Layout 1
 			Are you an HCA looking for a new temporary contract or extra shifts? If so, we have opportunities in care homes nationwide with fantastic rates. Get in touch today for more information!</p>
 		</div><!-- /.col-lg-7 -->
 		<div class="col-sm-12 col-md-3 col-lg-3">
-		  <a href="appointment.html" class="btn btn__secondary btn__secondary-style2 btn__rounded mr-30">
+		  <a href="{{route('upload.cv')}}" class="btn btn__secondary btn__secondary-style2 btn__rounded mr-30">
 			<span>Register with Us</span>
 			<i class="icon-arrow-right"></i>
 		  </a>
