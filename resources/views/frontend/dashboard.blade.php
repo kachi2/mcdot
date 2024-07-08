@@ -63,13 +63,13 @@ Features Layout 1
 		<p class="heading__desc font-weight-bold">We take great pride in serving as your dependable ally in the field of healthcare recruitment. Our achievements stem from the meticulous choice of skilled, committed, and devoted recruitment professionals. We pledge to align skilled individuals with suitable positions and work closely with our experienced advisors to identify the most suitable candidates for every project. With unwavering excellence in our services, we are capable of fulfilling your healthcare staffing requirements and beyond.
 		</p>
 		<div class="d-flex flex-wrap align-items-center mt-40 mb-30">
-		  <a href="#" class="btn btn__secondary btn__link">
+		  <a href="{{route('upload.cv')}}" class="btn btn__secondary btn__link">
 			<i class="icon-arrow-right icon-filled"></i>
 			<span> Find Jobs</span>
 		  </a>
 
 
-		  <a href="#" class="btn btn__secondary btn__link">
+		  <a href="{{route('users.contact')}}" class="btn btn__secondary btn__link">
 			<i class="icon-arrow-right icon-filled"></i>
 			<span> Hire Top Candidates </span>
 		  </a>
