@@ -17,7 +17,7 @@
 		<div class="feature__content">
 		  <h4 class="feature__title">LOOKING FOR STAFF?</h4>
 		  <p class="feature__desc">If you are in need of quality nursing staff for short notice shifts, long term contracts, temporary to permanent work, permanent placements and specialist roles we can help..</p>
-		  <a href="#" class="btn btn__link btn__secondary">
+		  <a href="{{route('users.contact')}}" class="btn btn__link btn__secondary">
 			<span>Start Hiring Now</span>
 			<i class="icon-arrow-right"></i>
 		  </a>
@@ -31,7 +31,7 @@
 		<div class="feature__content">
 		  <h4 class="feature__title">LOOKING FOR WORK?</h4>
 		  <p class="feature__desc">We are fast becoming a national company with a local feel and we believe strongly in investing in our workforce, whether they be our internal staff or our candidates. </p>
-		  <a href="#" class="btn btn__link btn__secondary">
+		  <a href="{{route('upload.cv')}}" class="btn btn__link btn__secondary">
 			<span>Register with Us</span>
 			<i class="icon-arrow-right"></i>
 		  </a>

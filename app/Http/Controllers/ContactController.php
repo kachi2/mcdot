@@ -7,6 +7,7 @@ use App\Models\Page;
 use Illuminate\Support\Facades\Session;
 use App\Mail\ContactUs;
 use App\Models\Setting;
+use App\Models\SubMenu;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,7 @@ class ContactController extends Controller
 
     public function Index(){
         return view('frontend.contact')
-        ->with('services', Page::latest()->get());
+        ->with('services', SubMenu::where('menu_id', 4)->get());
     }
 
     public function Contact(Request $request){

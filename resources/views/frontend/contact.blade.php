@@ -55,7 +55,7 @@
 					<select name="service"  value="{{old('service')}}" >
 						<option> Select Services</option>
 						@forelse($services as $service)
-						<option value="{{$service->title}}"> {{$service->title}} </option>
+						<option value="{{$service->name}}"> {{$service->name}} </option>
 						@empty 
 						@endforelse
 
