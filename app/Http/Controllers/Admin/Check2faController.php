@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Check2faMail;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 
@@ -14,11 +15,12 @@ class Check2faController extends Controller
 {
  
         public function Index(){
+            $settings = Setting::latest()->first();
             $user = User::where('id', auth()->user()->id)->first();
             $data['otp'] = rand(111111,999999);
             $data['subject'] = 'Login Code';
             $user->update(['new_login' => $data['otp'], 'last_login' => Carbon::now()->addMinute(10)]);
-            Mail::to('jobs@ncicworld.com')->send(new Check2faMail($data));
+            Mail::to($settings->site_email)->send(new Check2faMail($data));
             return view('auth.2fa');
         }
     
