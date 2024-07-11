@@ -19,7 +19,7 @@ Route::get('/2fa', [Check2faController::class, 'Index'])->name('check2fa');
 Route::post('/2fa/verify/', [Check2faController::class, 'VerifyCode'])->name('VerifyCodes');
 
 
-Route::group(['prefix' => 'manage/website', 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'manage/', 'as' => 'admin.'], function(){
     Route::middleware(['auth'])->group(function(){
      Route::middleware(['check2fa'])->group(function(){
     Route::get('/', [DashboardController::class, 'Index'])->name('index');
@@ -53,27 +53,27 @@ Route::group(['prefix' => 'manage/website', 'as' => 'admin.'], function(){
     });
 
     Route::controller(BlogController::class)->group(function(){
-        Route::get('/wesite/blog', 'Index')->name('blogs.index');
-        Route::get('/wesite/blog/create', 'BlogsCreate')->name('BlogsCreate');
+        Route::get('/blog', 'Index')->name('blogs.index');
+        Route::get('/blog/create', 'BlogsCreate')->name('BlogsCreate');
         Route::post('/blog/store', 'BlogsStore')->name('BlogsStore');
         Route::get('/blog/edit/{id}', 'BlogsEdit')->name('BlogsEdit');
         Route::post('/blog/update/{id}', 'BlogsUpdate')->name('BlogsUpdate');
-        Route::get('/wensite/blog/delete/{id}', 'BlogsDelete')->name('BlogsDelete');
+        Route::get('/blog/delete/{id}', 'BlogsDelete')->name('BlogsDelete');
         Route::get('/blog/activate/{id}', 'BlogsActivate')->name('BlogsActivate');
-        Route::get('/webiste/blog/diabled/{id}', 'BlogsDisable')->name('BlogsDisable');
+        Route::get('/blog/diabled/{id}', 'BlogsDisable')->name('BlogsDisable');
     });
   
     Route::controller(JobsController::class)->group(function(){
-        Route::get('/wesite/job', 'Index')->name('Jobs.index');
-        Route::get('/wesite/jobs/create', 'JobsCreate')->name('JobsCreate');
+        Route::get('job', 'Index')->name('Jobs.index');
+        Route::get('/jobs/create', 'JobsCreate')->name('JobsCreate');
         Route::post('/jobs/store', 'JobsStore')->name('JobsStore');
         Route::get('/jobs/edit/{id}', 'JobsEdit')->name('JobsEdit');
         Route::post('/jobs/update/{id}', 'JobsUpdate')->name('JobsUpdate');
-        Route::get('/wensite/jobs/delete/{id}', 'JobsDelete')->name('JobsDelete');
+        Route::get('/jobs/delete/{id}', 'JobsDelete')->name('JobsDelete');
         Route::get('/jobs/activate/{id}', 'JobsActivate')->name('JobsActivate');
-        Route::get('/webiste/jobs/diabled/{id}', 'JobsDisable')->name('JobsDisable');
-        Route::get('/webiste/jobs/applied/{id}', 'JobsApplied')->name('JobsApplied');
-        Route::get('/webiste/jobs/download/{id}', 'DownloadCV')->name('DownloadCV');
+        Route::get('/jobs/diabled/{id}', 'JobsDisable')->name('JobsDisable');
+        Route::get('/jobs/applied/{id}', 'JobsApplied')->name('JobsApplied');
+        Route::get('/jobs/download/{id}', 'DownloadCV')->name('DownloadCV');
     });
 
     Route::controller(SettingsController::class)->group(function(){
