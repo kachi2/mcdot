@@ -35,7 +35,7 @@ class SendJobEmail extends Mailable
     {
         return new Envelope(
             subject: $this->data['subject'],
-            from: new Address('noreply@ncicworld.com', 'ncicworld'),
+            from: new Address('support@mcdot.co.uk', 'MCDOT Care Service'),
         );
     }
 

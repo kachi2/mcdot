@@ -35,7 +35,7 @@ class Check2faMail extends Mailable
     {
         return new Envelope(
             subject: $this->data['subject'],
-            from: new Address('support@mazeoptions.com', 'McDot'),
+            from: new Address('support@mcdot.co.uk', 'McDot Care Service'),
         );
     }
 

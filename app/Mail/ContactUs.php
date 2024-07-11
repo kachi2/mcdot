@@ -34,7 +34,7 @@ class ContactUs extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address('noreply@ncicworld.com', ' Ncicworld'),
+            from: new Address('support@mcdot.co.uk', ' MCDOT Care Services'),
             subject: 'Contact Form submitted',
         );
     }

@@ -13,6 +13,7 @@ use App\Models\ClientJob;
 use Illuminate\Support\Facades\Session;
 use App\Mail\ContactUs;
 use App\Models\Industry;
+use App\Models\Setting;
 
 class PagesController extends Controller
 {
@@ -74,6 +75,7 @@ class PagesController extends Controller
 
     public function ContactEmails(Request $request){
 
+        $settings = Setting::latest()->first();
         if(!$request->key){
             return back();
         }
@@ -100,7 +102,7 @@ class PagesController extends Controller
         ];
         Session::flash('message', 'Request sent Successfully');
         Session::flash('alert', 'success');
-        Mail::to(['jobs@ncicworld.com'])->send(new ContactUs($data));
+        Mail::to([$settings->site_email])->send(new ContactUs($data));
 
        // dd($email);
         return back();
